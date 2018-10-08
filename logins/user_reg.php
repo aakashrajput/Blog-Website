@@ -61,120 +61,12 @@
       <div class="collapse navbar-collapse" data-nav-image="assets/img/blurred-image-1.jpg" data-color="orange">
         <ul class="navbar-nav ml-auto">
           <li class="dropdown nav-item">
-            <!--a href="register-page.html#" class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false">
-              Components </a>
-            <div class="dropdown-menu dropdown-menu-right dropdown-danger">
-              <a href="index.html" class="dropdown-item">
-                All Components
-              </a>
-            </div>
-          </li>
-          <li class="dropdown nav-item">
-            <a href="register-page.html#" class="dropdown-toggle nav-link" id="navbarDropdownMenuLink" data-toggle="dropdown">
-              Sections
-            </a>
-            <div class="dropdown-menu dropdown-menu-right dropdown-danger" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" data-scroll="true" data-id="#headers" href="sections.html#headers">
-                <i class="nc-icon nc-tile-56"></i> Headers
-              </a>
-              <a class="dropdown-item" data-scroll="true" data-id="#features" href="sections.html#features">
-                <i class="nc-icon nc-settings"></i> Features
-              </a>
-              <a class="dropdown-item" data-scroll="true" data-id="#blogs" href="sections.html#blogs">
-                <i class="nc-icon nc-bullet-list-67"></i> Blogs
-              </a>
-              <a class="dropdown-item" data-scroll="true" data-id="#teams" href="sections.html#teams">
-                <i class="nc-icon nc-single-02"></i> Teams
-              </a>
-              <a class="dropdown-item" data-scroll="true" data-id="#projects" href="sections.html#projects">
-                <i class="nc-icon nc-calendar-60"></i> Projects
-              </a>
-              <a class="dropdown-item" data-scroll="true" data-id="#pricing" href="sections.html#pricing">
-                <i class="nc-icon nc-money-coins"></i> Pricing
-              </a>
-              <a class="dropdown-item" data-scroll="true" data-id="#testimonials" href="sections.html#testimonials">
-                <i class="nc-icon nc-badge"></i> Testimonials
-              </a>
-              <a class="dropdown-item" data-scroll="true" data-id="#contact-us" href="sections.html#contactus">
-                <i class="nc-icon nc-mobile"></i> Contact Us
-              </a>
-            </div>
-          </li>
-          <li class="dropdown nav-item">
-            <a href="register-page.html#" class="dropdown-toggle nav-link" id="navbarDropdownMenuLink1" data-toggle="dropdown">
-              Examples
-            </a>
-            <div class="dropdown-menu dropdown-menu-right dropdown-danger" aria-labelledby="navbarDropdownMenuLink1">
-              <a class="dropdown-item" href="about-us.html">
-                <i class="nc-icon nc-bank"></i> About-us
-              </a>
-              <a class="dropdown-item" href="add-product.html">
-                <i class="nc-icon nc-basket"></i> Add Product
-              </a>
-              <a class="dropdown-item" href="blog-post.html">
-                <i class="nc-icon nc-badge"></i> Blog Post
-              </a>
-              <a class="dropdown-item" href="blog-posts.html">
-                <i class="nc-icon nc-bullet-list-67"></i> Blog Posts
-              </a>
-              <a class="dropdown-item" href="contact-us.html">
-                <i class="nc-icon nc-mobile"></i> Contact Us
-              </a>
-              <a class="dropdown-item" href="discover.html">
-                <i class="nc-icon nc-world-2"></i> Discover
-              </a>
-              <a class="dropdown-item" href="ecommerce.html">
-                <i class="nc-icon nc-send"></i> Ecommerce
-              </a>
-              <a class="dropdown-item" href="landing-page.html">
-                <i class="nc-icon nc-spaceship"></i> Landing Page
-              </a>
-              <a class="dropdown-item" href="login-page.html">
-                <i class="nc-icon nc-lock-circle-open"></i> Login Page
-              </a>
-              <a class="dropdown-item" href="product-page.html">
-                <i class="nc-icon nc-album-2"></i> Product Page
-              </a>
-              <a class="dropdown-item" href="profile-page.html">
-                <i class="nc-icon nc-single-02"></i> Profile Page
-              </a>
-              <a class="dropdown-item" href="register-page.html">
-                <i class="nc-icon nc-bookmark-2"></i> Register Page
-              </a>
-              <a class="dropdown-item" href="search-with-sidebar.html">
-                <i class="nc-icon nc-zoom-split"></i> Search Page
-              </a>
-              <a class="dropdown-item" href="settings.html">
-                <i class="nc-icon nc-settings-gear-65"></i> Settings Page
-              </a>
-              <a class="dropdown-item" href="twitter-redesign.html">
-                <i class="nc-icon nc-tie-bow"></i> Twitter
-              </a>
-            </div>
-          </li-->
+
           <li class="nav-item">
             <a class="btn btn-round btn-danger" href="../" target="_blank">
               <i class="nc-icon nc-back"></i> Go Back
             </a>
           </li>
-          <!-- <li class="nav-item">
-					<a class="nav-link" rel="tooltip" title="Follow us on Twitter" data-placement="bottom" href="https://twitter.com/CreativeTim" target="_blank">
-						<i class="fab fa-twitter"></i>
-						<p class="hidden-lg-up">Twitter</p>
-					</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" rel="tooltip" title="Like us on Facebook" data-placement="bottom" href="https://www.facebook.com/CreativeTim" target="_blank">
-						<i class="fab fa-facebook-square"></i>
-						<p class="hidden-lg-up">Facebook</p>
-					</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" rel="tooltip" title="Follow us on Instagram" data-placement="bottom" href="https://www.instagram.com/CreativeTimOfficial" target="_blank">
-						<i class="fab fa-instagram"></i>
-						<p class="hidden-lg-up">Instagram</p>
-					</a>
-				</li> -->
         </ul>
       </div>
     </div>
@@ -229,8 +121,8 @@
               </div>
               <form class="register-form" method="post" action="user_reg.php">
                 <?php include('errors.php'); ?>
-                <input type="text" class="form-control" name="username" value="<?php echo $username; ?>" placeholder="username" required="">
                 <input type="text" class="form-control" name="name"  placeholder="Your Name" value="<?php echo $name; ?>" type="text" required="">
+                <input type="text" class="form-control" name="username" value="<?php echo $username; ?>" placeholder="username" required="">
                 <input type="text" class="form-control" name="email" value="<?php echo $email; ?>" placeholder="email" required="">
                 <input type="password" class="form-control" name="password_1"  placeholder="Enter Your Password" type="password" required="">
                 <input type="password" class="form-control" name="password_2"  placeholder="Retype Your Password" type="password" required="">
@@ -238,7 +130,7 @@
               </form>
               <div class="login">
                 <p>Already have an account?
-                  <a href="register-page.html#0">Log in</a>.</p>
+                  <a href="user_login.php">Log in</a>.</p>
               </div>
             </div>
           </div>
@@ -248,7 +140,7 @@
         <h6>&copy;
           <script>
             document.write(new Date().getFullYear())
-          </script>, made with <i class="fa fa-heart heart"></i> by Creative Tim</h6>
+          </script>, made with <i class="fa fa-heart heart"></i> by SpartansHub</h6>
       </div>
     </div>
   </div>
@@ -283,53 +175,6 @@
   <script src="assets/js/plugins/presentation-page/main.js"></script>
   <!-- Sharrre libray -->
   <script src="assets/demo/jquery.sharrre.js"></script>
-  <script>
-    $(document).ready(function() {
-
-
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-46172202-1']);
-      _gaq.push(['_trackPageview']);
-
-      (function() {
-        var ga = document.createElement('script');
-        ga.type = 'text/javascript';
-        ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(ga, s);
-      })();
-
-      // Facebook Pixel Code Don't Delete
-      ! function(f, b, e, v, n, t, s) {
-        if (f.fbq) return;
-        n = f.fbq = function() {
-          n.callMethod ?
-            n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-        };
-        if (!f._fbq) f._fbq = n;
-        n.push = n;
-        n.loaded = !0;
-        n.version = '2.0';
-        n.queue = [];
-        t = b.createElement(e);
-        t.async = !0;
-        t.src = v;
-        s = b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t, s)
-      }(window,
-        document, 'script', '//connect.facebook.net/en_US/fbevents.js');
-
-      try {
-        fbq('init', '111649226022273');
-        fbq('track', "PageView");
-
-      } catch (err) {
-        console.log('Facebook Track Error:', err);
-      }
-
-    });
-  </script>
   <noscript>
     <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=111649226022273&ev=PageView&noscript=1" />
   </noscript>

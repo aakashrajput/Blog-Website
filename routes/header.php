@@ -49,16 +49,7 @@
                                 </li>
                                 <li>
                                     <!--a href="javascript:void(0)" data-toggle="modal" data-target="#user-modal"-->
-                                    <?php
-                                        session_start();
-                                        if($_SESSION['logged'] == true){
-                                            echo $_SESSION["username"];
-                                            echo '<a href="logout.php"><span>Logout</span></a></li>';
-                                        }
-                                        else {
-                                            echo '<a href="./logins/user_reg.php"><span>Login/Register</span></a></li>';
-                                        }
-                                        ?>
+                                    <a href="./logins/user_reg.php">Login/Register</a></li>
 
                                 </li>
                                 <li>

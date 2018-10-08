@@ -13,8 +13,8 @@ $db = mysqli_connect('localhost', 'root', '', 'develophowto');
 // REGISTER USER
 if (isset($_POST['reg_user'])) {
   // receive all input values from the form
-  $username = mysqli_real_escape_string($db, $_POST['username']);
   $name = mysqli_real_escape_string($db, $_POST['name']);
+  $username = mysqli_real_escape_string($db, $_POST['username']);
   $email = mysqli_real_escape_string($db, $_POST['email']);
   $password_1 = mysqli_real_escape_string($db, $_POST['password_1']);
   $password_2 = mysqli_real_escape_string($db, $_POST['password_2']);
@@ -48,12 +48,12 @@ if (isset($_POST['reg_user'])) {
   if (count($errors) == 0) {
     $password = md5($password_1);//encrypt the password before saving in the database
 
-    $query = "INSERT INTO user_reg (username, name, email, password)
-          VALUES('$username','$name', '$email', '$password')";
+    $query = "INSERT INTO user_reg (name, username, email, password)
+          VALUES('$name','$username', '$email', '$password')";
     mysqli_query($db, $query);
     $_SESSION['username'] = $username;
     $_SESSION['success'] = "You are now logged in";
-    header('location: ../');
+    header('location: ../user/');
   }
 }
 
@@ -78,7 +78,7 @@ if (isset($_POST['login_user'])) {
     if (mysqli_num_rows($results) == 1) {
       $_SESSION['username'] = $username;
       $_SESSION['success'] = "You are now logged in";
-      header('location: ../');
+      header('location: ../user/');
     }else {
       array_push($errors, "Wrong username/password combination");
     }
