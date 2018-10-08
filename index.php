@@ -1,13 +1,13 @@
 <?php
-include ("./routes/header.php");
-include ("./routes/trending.php");
-include ("./routes/container_top.php");
+include("./routes/header.php");
+include("./routes/trending.php");
+include("./routes/container_top.php");
 ?>
 
 
             <!-- /.End of news masonry -->
             <?php
-            include ("./routes/home_comments.php");
+            include("./routes/home_comments.php");
             ?>
 
                             <!-- /.End of trending post -->
@@ -85,5 +85,5 @@ include ("./routes/container_top.php");
                             <!-- /.End of donation widget -->
 
 <?php
-include ("./routes/footer.php");
+include("./routes/footer.php");
 ?>

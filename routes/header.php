@@ -18,6 +18,8 @@
         <link href="assets/css/magnific-popup.css" rel="stylesheet">
         <link href="assets/css/fluidbox.min.css" rel="stylesheet">
         <link href="assets/css/style.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
     </head>
     <body>
         <div class="main-content animsition">
@@ -27,7 +29,7 @@
                         <div class="col-sm-6 col-md-7">
                             <div class="header-nav">
                                 <ul>
-                                    <li><span class="headre-weather"><i class="fa fa-calendar-check-o"></i>&nbsp; Thursday, January 25</span></li>
+                                    <li><span class="headre-weather"><i class="fa fa-calendar-check-o"></i>&nbsp;<a id="time">Jan 21, 2018</a></span></li>
                                     <li><a href="contact.html">Contact</a></li>
                                     <li><a href="about-me.html">about</a></li>
                                     <li><a href="index.html#">Buy now!</a></li>
@@ -47,14 +49,14 @@
                                     <a href="javascript:void(0)" data-toggle="modal" data-target="#user-modal">Login / Register</a>
                                 </li>
                                 <li>
-                                    <div class="weather-top">
+                                    <!--div class="weather-top">
                                         <i class="fa fa-cloud"></i>
                                         <div class="weather-now">
-                                            <span class="degrees">- 5.9</span>
+                                            <span class="degrees" id="output">- 5.9</span>
                                             <span class="unit">C</span>
                                         </div>
                                         <div class="weather-city">New York</div>
-                                    </div>
+                                    </div-->
                                 </li>
                             </ul>
                         </div>
