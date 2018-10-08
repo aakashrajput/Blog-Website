@@ -50,13 +50,15 @@
                                 <li>
                                     <!--a href="javascript:void(0)" data-toggle="modal" data-target="#user-modal"-->
                                     <?php
-                                      session_start();
-                                      if($_SESSION['logged']==true){
-                                        echo '<a href="logout.php">' + $_SESSION["username"] + ' (Logout)</a></li>';
-                                      }
-                                      elseif($_SESSION['logged']==false)
-                                        echo '<a href="logins/user_reg.php">Login/Register</a></li>';
-                                    ?>
+                                        session_start();
+                                        if($_SESSION['logged'] == true){
+                                            echo $_SESSION["username"];
+                                            echo '<a href="logout.php"><span>Logout</span></a></li>';
+                                        }
+                                        else {
+                                            echo '<a href="./logins/user_reg.php"><span>Login/Register</span></a></li>';
+                                        }
+                                        ?>
 
                                 </li>
                                 <li>
