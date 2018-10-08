@@ -8,7 +8,7 @@
   <link rel="icon" type="image/png" href="https://demos.creative-tim.com/paper-kit-2-pro/assets/img//favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    DevelopHowTO Login
+    DevelopHowTo Login
   </title>
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">

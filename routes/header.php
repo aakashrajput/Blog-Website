@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -46,7 +48,16 @@
                                     <a href="index.html#"><i class="fa fa-youtube-play"></i></a>
                                 </li>
                                 <li>
-                                    <!--a href="javascript:void(0)" data-toggle="modal" data-target="#user-modal"--><a href="logins/user_reg.php">Login / Register</a>
+                                    <!--a href="javascript:void(0)" data-toggle="modal" data-target="#user-modal"-->
+                                    <?php
+                                      session_start();
+                                      if($_SESSION['logged']==true){
+                                        echo '<a href="logout.php">' + $_SESSION["username"] + ' (Logout)</a></li>';
+                                      }
+                                      elseif($_SESSION['logged']==false)
+                                        echo '<a href="logins/user_reg.php">Login/Register</a></li>';
+                                    ?>
+
                                 </li>
                                 <li>
                                     <!--div class="weather-top">
