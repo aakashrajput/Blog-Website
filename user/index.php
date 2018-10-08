@@ -1,13 +1,13 @@
 <?php
 include("./routes/header.php");
-include("./routes/trending.php");
-include("./routes/container_top.php");
+include("../routes/trending.php");
+include("../routes/container_top.php");
 ?>
 
 
             <!-- /.End of news masonry -->
             <?php
-            include("./routes/home_comments.php");
+            include("../routes/home_comments.php");
             ?>
 
                             <!-- /.End of trending post -->
@@ -17,9 +17,9 @@ include("./routes/container_top.php");
                             <!-- /.End of banner content -->
                         </div>
                         <?php
-                        include("./routes/recent_posts.php");
-                        include("./routes/most_popular.php");
-                        include("./routes/subscribe.php");
+                        include("../routes/recent_posts.php");
+                        include("../routes/most_popular.php");
+                        include("../routes/subscribe.php");
                         ?>
 
 
@@ -29,7 +29,7 @@ include("./routes/container_top.php");
                             </div>
                             <!-- /.End of banner content -->
                             <?php
-                            include("./routes/category.php");
+                            include("../routes/category.php");
                             ?>
                 <div class=" container">
                     <div class="height_15"></div>
@@ -39,7 +39,7 @@ include("./routes/container_top.php");
                     <!-- /.End of banner content -->
                 </div>
                 <?php
-                include("./routes/featured_video.php");
+                include("../routes/featured_video.php");
                 ?>
                 <!--  /.End of youtube video -->
                 <div class="container">
@@ -51,7 +51,7 @@ include("./routes/container_top.php");
                             <!--/.End of banner content-->
                         </div>
                         <?php
-                        include("./routes/latest_article.php");
+                        include("../routes/latest_article.php");
                         ?>
                             <!-- /.End of pagination -->
                             <div class="banner-content">
@@ -78,12 +78,12 @@ include("./routes/container_top.php");
                             </div>
                             <!-- /.End of banner content -->
                             <?php
-                            include("./routes/donation.php");
-                            include("./routes/tags.php");
+                            include("../routes/donation.php");
+                            include("../routes/tags.php");
                             ?>
                                 <!-- /.End of card info -->
                             <!-- /.End of donation widget -->
 
 <?php
-include("./routes/footer.php");
+include("../routes/footer.php");
 ?>
