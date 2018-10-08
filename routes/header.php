@@ -46,7 +46,7 @@
                                     <a href="index.html#"><i class="fa fa-youtube-play"></i></a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0)" data-toggle="modal" data-target="#user-modal">Login / Register</a>
+                                    <!--a href="javascript:void(0)" data-toggle="modal" data-target="#user-modal"--><a href="logins/user_reg.php">Login / Register</a>
                                 </li>
                                 <li>
                                     <!--div class="weather-top">
