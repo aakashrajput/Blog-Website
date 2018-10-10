@@ -1,3 +1,16 @@
+<?php
+session_start();
+
+  if (!isset($_SESSION['username'])) {
+    $_SESSION['msg'] = "You must log in first";
+    header('location: .././index.php');
+  }
+  if (isset($_GET['logout'])) {
+    session_destroy();
+    unset($_SESSION['username']);
+    header("location: .././index.php");
+  }
+?>
 <!DOCTYPE html>
 <html>
 
@@ -136,11 +149,11 @@
               <i class="ni ni-single-02 text-yellow"></i> User profile
             </a>
           </li>
-          <li class="nav-item">
+          <!--li class="nav-item">
             <a class="nav-link" href="examples/tables.html">
               <i class="ni ni-bullet-list-67 text-red"></i> Tables
             </a>
-          </li>
+          </li-->
           <!--li class="nav-item">
             <a class="nav-link" href="examples/login.html">
               <i class="ni ni-key-25 text-info"></i> Login
@@ -204,7 +217,7 @@
                   <img alt="Image placeholder" src="assets/img/theme/team-4-800x800.jpg">
                 </span>
                 <div class="media-body ml-2 d-none d-lg-block">
-                  <span class="mb-0 text-sm  font-weight-bold">Jessica Jones</span>
+                  <span class="mb-0 text-sm  font-weight-bold"><?php  if (isset($_SESSION['username'])) : echo $_SESSION['username']; endif ?></span>
                 </div>
               </div>
             </a>
@@ -229,7 +242,7 @@
                 <span>Support</span>
               </a>
               <div class="dropdown-divider"></div>
-              <a href="index.html#!" class="dropdown-item">
+              <a href="?logout='1'" class="dropdown-item">
                 <i class="ni ni-user-run"></i>
                 <span>Logout</span>
               </a>
