@@ -40,7 +40,7 @@
                     <div class="col-xs-6 col-sm-6 mas-p">
                         <div class="masonry-slide1 owl-carousel owl-theme">
                           <?php
-                              $container_query = "SELECT * FROM posts WHERE status = 'publish' ORDER BY id DESC LIMIT 2";
+                              $container_query = "SELECT * FROM posts WHERE status = 'publish' ORDER BY id ASC LIMIT 2";
                               $container_run = mysqli_query($link, $container_query);
                               $check = 0;
                                 while($container_row = mysqli_fetch_array($container_run)) {
@@ -70,7 +70,7 @@
                     <div class="col-xs-6 col-sm-6 mas-p">
                         <div class="masonry-slide2 owl-carousel owl-theme">
                           <?php
-                              $container_query = "SELECT * FROM posts WHERE status = 'publish' ORDER BY id DESC LIMIT 2";
+                              $container_query = "SELECT * FROM posts WHERE status = 'publish' ORDER BY title DESC LIMIT 2";
                               $container_run = mysqli_query($link, $container_query);
                               $check = 0;
                                 while($container_row = mysqli_fetch_array($container_run)) {
@@ -102,7 +102,7 @@
                     <div class="col-sm-6 mas-p">
                         <div class="masonry-slide3 owl-carousel owl-theme">
                           <?php
-                              $container_query = "SELECT * FROM posts WHERE status = 'publish' ORDER BY id DESC LIMIT 2";
+                              $container_query = "SELECT * FROM posts WHERE status = 'publish' ORDER BY categories DESC LIMIT 2";
                               $container_run = mysqli_query($link, $container_query);
                               $check = 0;
                                 while($container_row = mysqli_fetch_array($container_run)) {
