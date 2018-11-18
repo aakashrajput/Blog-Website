@@ -1,22 +1,44 @@
 <main class="col-xs-12 col-sm-8 col-md-7 content p_r_40">
+  <?php
+      $post_query = "SELECT * FROM posts WHERE status = 'publish' ORDER BY title DESC LIMIT 1";
+      $post_run = mysqli_query($link, $post_query);
+      $check = 0;
+        while($row = mysqli_fetch_array($post_run)) {
+                  $id = $row['id'];
+                  $date = getdate ($row['date']);
+                  $day = $date['mday'];
+                  $month = $date['month'];
+                  $year = $date['year'];
+                  $title = $row['title'];
+                  $author = $row['author'];
+                  $author_image = $row['author_image'];
+                  $categories = $row['categories'];
+                  $tags = $row['tags'];
+                  $post_data = $row['post_data'];
+                  $views = $row['views'];
+                  $status = $row['status'];
+                  $image = $row['image'];
+             ?>
     <article class="grid_post grid_post_lg text-center">
         <figure>
             <a href="index.html#" class="grid_image"><img src="assets/img/825x630-2.jpg" class="img-responsive" alt=""></a>
             <figcaption>
-                <div class="post-cat"><span>In</span> <a href="index.html#">Lifestyle</a></div>
+                <div class="post-cat"><span>In</span> <a href="index.html#"><?php echo $categories; ?></a></div>
                 <div class="entry-meta">
-                    <span class="entry-date"><i class="fa fa-calendar-o" aria-hidden="true"></i><time datetime="2018-01-21T19:00">Jan 21, 2018</time></span>
+                    <span class="entry-date"><i class="fa fa-calendar-o" aria-hidden="true"></i><time datetime="2018-01-21T19:00"><?php echo "$month $day, $year " ?></time></span>
                     <span class="comment-link"><a href="index.html#"><i class="fa fa-comment-o" aria-hidden="true"></i>9 Comments</a></span>
                 </div>
-                <h3 class="grid_post_title"><a href="index.html#">It is a long established fact that a reader will be distracted by the readable content.</a></h3>
-                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
-                    The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content
-                    here, content here', making it look like readable English.</p>
+                <h3 class="grid_post_title"><a href="index.html#"><?php echo $title; ?></a></h3>
+                <p><?php echo substr($post_data,0,200); ?></p>
                 <a href="index.html#" class="btn link-btn btn-outline btn-rounded">Reading &#8702;</a>
                 <!-- /.Post button -->
             </figcaption>
         </figure>
     </article>
+    <?php
+                 }
+            ?>
+
     <!-- /.End of grid post -->
     <div class="media meida-md">
         <div class="media-left">
