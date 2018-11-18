@@ -1,6 +1,6 @@
 <div class="col-xs-12 col-sm-8 col-md-7 content  p_r_40">
     <div class="title-holder">
-        <h3 class="title">Latest Articles</h3>
+        <h3 class="title">Latest News</h3>
         <span class="title-shape title-shape-dark"></span>
     </div>
     <!--<h3 class="widget-title">Latest Articles</h3>-->
