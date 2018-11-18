@@ -547,7 +547,7 @@ if(isset($_POST['search'])) {
                 <button id="btn-search-close" class="btn btn--search-close" aria-label="Close search form"> <i class="ti-close"></i></button>
                 <form class="search__form" action="index.php" method="post">
                     <input class="search__input" name="search-title" type="search" placeholder="Search and hit enter..."/>
-                    <span class="search__info"><input type="submit" value="Search" name="search" hidden></span>
+                    <span class="search__info"><input type="submit" value="Search" name="search" hidden>Hit enter to search or ESC to close</span>
                 </form>
                 <div class="search__related">
                     <div class="search__suggestion">

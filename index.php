@@ -31,6 +31,10 @@ include("./routes/container_top.php");
                             <?php
                             include("./routes/category.php");
                             ?>
+                          </aside>
+                          </div>
+                          </div>
+
                 <div class=" container">
                     <div class="height_15"></div>
                     <div class="banner-content">

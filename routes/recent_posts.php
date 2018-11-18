@@ -21,7 +21,7 @@
              ?>
     <article class="grid_post grid_post_lg text-center">
         <figure>
-            <a href="index.html#" class="grid_image"><img src="assets/img/825x630-2.jpg" class="img-responsive" alt=""></a>
+            <a href="posts.php" class="grid_image"><img src="assets/img/825x630-2.jpg" class="img-responsive" alt=""></a>
             <figcaption>
                 <div class="post-cat"><span>In</span> <a href="index.html#"><?php echo $categories; ?></a></div>
                 <div class="entry-meta">
@@ -30,7 +30,7 @@
                 </div>
                 <h3 class="grid_post_title"><a href="index.html#"><?php echo $title; ?></a></h3>
                 <p><?php echo substr($post_data,0,200); ?></p>
-                <a href="index.html#" class="btn link-btn btn-outline btn-rounded">Reading &#8702;</a>
+                <a href="posts.php" class="btn link-btn btn-outline btn-rounded">Reading &#8702;</a>
                 <!-- /.Post button -->
             </figcaption>
         </figure>
@@ -108,7 +108,7 @@
                               else {
                                 echo "<Center><h2>No Posts Available</h2></center>";
                               }
-                            
+
                         ?>
 
     <!-- /.End of media post -->

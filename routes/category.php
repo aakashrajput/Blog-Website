@@ -19,6 +19,3 @@
   <?php } ?>
 </div>
 <!-- /.End of category widget -->
-</aside>
-</div>
-</div>
