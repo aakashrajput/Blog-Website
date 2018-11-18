@@ -39,7 +39,7 @@
                  }
             ?>
             <?php
-                $post_query = "SELECT * FROM posts WHERE status = 'publish' ORDER BY title DESC LIMIT 5";
+                $post_query = "SELECT * FROM posts WHERE status = 'publish' ORDER BY id DESC LIMIT 5";
                 $post_run = mysqli_query($link, $post_query);
                 $check = 0;
                   while($row = mysqli_fetch_array($post_run)) {
