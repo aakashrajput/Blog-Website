@@ -115,44 +115,7 @@ include("./routes/trending.php");
                           <!-- /.End of author bio -->
                       </aside>
                       <!-- /.End of about author -->
-                      <div class="post_related">
-                          <h3 class="related_post_title">You Might Also Like...</h3>
-                          <div class="row">
-                              <div class="col-sm-4">
-                                  <article class="post_article item_related">
-                                      <a class="post_img" href="details-image.html#">
-                                          <figure>
-                                              <img class="img-responsive" src="assets/img/400x280-7.jpg" alt="">
-                                          </figure>
-                                      </a>
-                                      <h4><a href="details-image.html#">Ut et nunc a <em><strong>dolor sodales</strong></em> lacinia quis ac justo.</a></h4>
-                                  </article>
-                                  <!-- /.End of related post -->
-                              </div>
-                              <div class="col-sm-4">
-                                  <article class="post_article item_related">
-                                      <a class="post_img" href="details-image.html#">
-                                          <figure>
-                                              <img class="img-responsive" src="assets/img/400x280-8.jpg" alt="">
-                                          </figure>
-                                      </a>
-                                      <h4><a href="details-image.html#">Aliquam <em><strong>gravida urna</strong></em> ut ipsum hendrerit cursus.</a></h4>
-                                  </article>
-                                  <!-- /.End of related post -->
-                              </div>
-                              <div class="col-sm-4">
-                                  <article class="post_article item_related">
-                                      <a class="post_img" href="details-image.html#">
-                                          <figure>
-                                              <img class="img-responsive" src="assets/img/400x280-9.jpg" alt="">
-                                          </figure>
-                                      </a>
-                                      <h4><a href="details-image.html#">Aliquam eu nunc at nulla efficitur <em><strong>pellentesque a quis.</strong></em></a></h4>
-                                  </article>
-                                  <!-- /.End of related post -->
-                              </div>
-                          </div>
-                      </div>
+                      <?php include("./routes/related_posts.php"); ?>
                       <!-- /.End of  related post -->
                       <div class="comments">
                           <h3 class="comment_title">2 Comments</h3>
@@ -188,36 +151,12 @@ include("./routes/trending.php");
                           </div>
                       </div>
                       <!-- /.End of comment -->
-                      <div class="comment_form">
-                          <h3 class="replay_title">Leave a Reply </h3>
-                          <div class="form-group">
-                              <textarea class="form-control" id="textarea" rows="5"></textarea>
-                          </div>
-                          <div class="form-group row">
-                              <label for="name" class="col-sm-2 col-form-label">Name *</label>
-                              <div class="col-sm-5">
-                                  <input class="form-control" id="name2" type="text">
-                              </div>
-                          </div>
-                          <div class="form-group row">
-                              <label for="email" class="col-sm-2 col-form-label">Email *</label>
-                              <div class="col-sm-5">
-                                  <input class="form-control" id="email3" type="text">
-                              </div>
-                          </div>
-                          <div class="form-group row">
-                              <label for="website" class="col-sm-2 col-form-label">Website</label>
-                              <div class="col-sm-5">
-                                  <input class="form-control" id="website" type="text">
-                              </div>
-                          </div>
-                          <a href="details-image.html#" class="btn link-btn">Post Comment ⇾</a>
-                      </div>
+                      <?php include("./routes/comment_form.php"); ?>
                       <!-- /.End of comment content -->
                   </main>
                   <aside class="col-sm-4 col-md-3 rightSidebar">
                       <?php
-                      include("./routes/about_author.php"); 
+                      include("./routes/about_author.php");
                        ?>
                       <!-- /.End of about -->
                       <?php

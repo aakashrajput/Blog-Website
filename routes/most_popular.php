@@ -26,11 +26,11 @@
                    ?>
         <!--  /.End of title -->
         <div class="media latest_post">
-            <a class="media-left" href="index.html">
+            <a class="media-left" href="posts.php">
                 <img src="assets/img/100x70-1.jpg" class="media-object" alt="">
             </a>
             <div class="media-body">
-                <h6 class="media-heading"><a href="index.html#"><?php echo $title; ?></a></h6>
+                <h6 class="media-heading"><a href="posts.php"><?php echo $title; ?></a></h6>
                 <div class="entry-meta">
                     <span class="entry-date"><i class="fa fa-calendar-o" aria-hidden="true"></i><time datetime="2018-01-21T19:00"><?php echo "$month $day , $year"; ?></time></span>
                 </div>

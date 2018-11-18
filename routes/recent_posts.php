@@ -28,7 +28,7 @@
                     <span class="entry-date"><i class="fa fa-calendar-o" aria-hidden="true"></i><time datetime="2018-01-21T19:00"><?php echo "$month $day, $year " ?></time></span>
                     <span class="comment-link"><a href="index.html#"><i class="fa fa-comment-o" aria-hidden="true"></i>9 Comments</a></span>
                 </div>
-                <h3 class="grid_post_title"><a href="index.html#"><?php echo $title; ?></a></h3>
+                <h3 class="grid_post_title"><a href="posts.php"><?php echo $title; ?></a></h3>
                 <p><?php echo substr($post_data,0,200); ?></p>
                 <a href="posts.php" class="btn link-btn btn-outline btn-rounded">Reading &#8702;</a>
                 <!-- /.Post button -->
@@ -76,16 +76,16 @@
                         <!-- /.End of grid post -->
                         <div class="media meida-md">
                             <div class="media-left">
-                                <a href="index.html#"><img src="assets/img/370x300-1.jpg" class="media-object" alt=""></a>
+                                <a href="posts.php"><img src="assets/img/370x300-1.jpg" class="media-object" alt=""></a>
                             </div>
                             <!-- /.Post image -->
                             <div class="media-body">
                                 <div class="post-header">
-                                    <div class="post-cat"><span>In</span> <a href="index.html#"><?php echo $categories; ?></a></div>
-                                    <h3 class="media-heading"><a href="index.html#"><?php echo $title; ?></a></h3>
+                                    <div class="post-cat"><span>In</span> <a href="posts.php"><?php echo $categories; ?></a></div>
+                                    <h3 class="media-heading"><a href="posts.php"><?php echo $title; ?></a></h3>
                                     <div class="entry-meta">
                                         <span class="entry-date"><i class="fa fa-calendar-o" aria-hidden="true"></i><time datetime="2018-01-21T19:00"><?php echo "$month $day, $year"; ?></time></span>
-                                        <span class="comment-link"><a href="index.html#"><i class="fa fa-comment-o" aria-hidden="true"></i>9 Comments</a></span>
+                                        <span class="comment-link"><a href="posts.php"><i class="fa fa-comment-o" aria-hidden="true"></i>9 Comments</a></span>
                                     </div>
                                     <!-- /.Post meta -->
                                 </div>
