@@ -39,25 +39,40 @@
                  }
             ?>
             <?php
-                $post_query = "SELECT * FROM posts WHERE status = 'publish' ORDER BY id DESC LIMIT 5";
-                $post_run = mysqli_query($link, $post_query);
-                $check = 0;
-                  while($row = mysqli_fetch_array($post_run)) {
-                            $id = $row['id'];
-                            $date = getdate ($row['date']);
-                            $day = $date['mday'];
-                            $month = $date['month'];
-                            $year = $date['year'];
-                            $title = $row['title'];
-                            $author = $row['author'];
-                            $author_image = $row['author_image'];
-                            $categories = $row['categories'];
-                            $tags = $row['tags'];
-                            $post_data = $row['post_data'];
-                            $views = $row['views'];
-                            $status = $row['status'];
-                            $image = $row['image'];
-                       ?>
+
+              if(isset($_POST['search'])){
+                $search = $_POST['search-title'];
+                $query  = "SELECT * FROM posts WHERE status = 'publish'";
+                $query .= "and tags LIKE  '%$search%'";
+                $query .= "ORDER BY id DESC LIMIT $posts_start_from, $number_of_posts";
+
+
+              } else {
+                $query = "SELECT * FROM posts WHERE status = 'publish'";
+                if(isset($cat_name)){
+                  $query .= "and categories = '$cat_name'";
+                }
+                $query .= "ORDER BY id DESC LIMIT $posts_start_from, $number_of_posts";
+
+              }
+              $run = mysqli_query($link,$query);
+              if(mysqli_num_rows($run) > 0){
+                while ($row = mysqli_fetch_array($run)){
+                  $id = $row['id'];
+                  $date = getdate ($row['date']);
+                  $day = $date['mday'];
+                  $month = $date['month'];
+                  $year = $date['year'];
+                  $title = $row['title'];
+                  $author = $row['author'];
+                  $author_image = $row['author_image'];
+                  $categories = $row['categories'];
+                  $tags = $row['tags'];
+                  $post_data = $row['post_data'];
+                  $views = $row['views'];
+                  $status = $row['status'];
+                  $image = $row['image'];
+             ?>
                         <!-- /.End of grid post -->
                         <div class="media meida-md">
                             <div class="media-left">
@@ -88,7 +103,12 @@
                             </div>
                         </div>
                         <?php
-                           }
+                            }
+                             }
+                              else {
+                                echo "<Center><h2>No Posts Available</h2></center>";
+                              }
+                            
                         ?>
 
     <!-- /.End of media post -->

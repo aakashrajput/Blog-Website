@@ -1,4 +1,32 @@
 <?php include ("db.php"); ?>
+<?php
+$number_of_posts = 3;
+
+if(isset($_GET['page'])){
+$page_id = $_GET['page'];
+}else {
+$page_id = 1;
+}
+
+if(isset($_POST['search'])) {
+  $search = $_POST['search-title'];
+  $all_posts_query = "SELECT * FROM posts WHERE status = 'publish'";
+  $all_posts_query .= " and tags LIKE '%$search%'";
+  $all_posts_run = mysqli_query($link,$all_posts_query);
+  $all_posts = mysqli_num_rows($all_posts_run);
+  $total_pages = ceil($all_posts / $number_of_posts);
+  $posts_start_from = ($page_id - 1) * $number_of_posts;
+} else {
+  $all_posts_query = "SELECT * FROM posts WHERE status = 'publish'";
+  if(isset($cat_name)){
+    $all_posts_query .= " and categories = '$cat_name'";
+    }
+  $all_posts_run = mysqli_query($link,$all_posts_query);
+  $all_posts = mysqli_num_rows($all_posts_run);
+  $total_pages = ceil($all_posts / $number_of_posts);
+  $posts_start_from = ($page_id - 1) * $number_of_posts;
+}
+ ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -514,11 +542,12 @@
             </nav>
             <div class="clearfix"></div>
             <!-- /.End of navigation -->
+
             <div class="search">
                 <button id="btn-search-close" class="btn btn--search-close" aria-label="Close search form"> <i class="ti-close"></i></button>
-                <form class="search__form" action="javascript:void(0)" method="post">
-                    <input class="search__input" name="search" type="search" placeholder="Search and hit enter..."/>
-                    <span class="search__info">Hit enter to search or ESC to close</span>
+                <form class="search__form" action="index.php" method="post">
+                    <input class="search__input" name="search-title" type="search" placeholder="Search and hit enter..."/>
+                    <span class="search__info"><input type="submit" value="Search" name="search" hidden></span>
                 </form>
                 <div class="search__related">
                     <div class="search__suggestion">
@@ -535,6 +564,7 @@
                     </div>
                 </div>
             </div>
+
             <!-- /.End of search full page  -->
             <!--<div class="height_40"></div>-->
             <!-- /.End of logo section -->
