@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 
@@ -11,7 +12,35 @@ session_start();
     header("location: .././index.php");
   }
 ?>
+<?php include (".././routes/db.php"); ?>
+<?php
+$number_of_posts = 3;
 
+if(isset($_GET['page'])){
+$page_id = $_GET['page'];
+}else {
+$page_id = 1;
+}
+
+if(isset($_POST['search'])) {
+  $search = $_POST['search-title'];
+  $all_posts_query = "SELECT * FROM posts WHERE status = 'publish'";
+  $all_posts_query .= " and tags LIKE '%$search%'";
+  $all_posts_run = mysqli_query($link,$all_posts_query);
+  $all_posts = mysqli_num_rows($all_posts_run);
+  $total_pages = ceil($all_posts / $number_of_posts);
+  $posts_start_from = ($page_id - 1) * $number_of_posts;
+} else {
+  $all_posts_query = "SELECT * FROM posts WHERE status = 'publish'";
+  if(isset($cat_name)){
+    $all_posts_query .= " and categories = '$cat_name'";
+    }
+  $all_posts_run = mysqli_query($link,$all_posts_query);
+  $all_posts = mysqli_num_rows($all_posts_run);
+  $total_pages = ceil($all_posts / $number_of_posts);
+  $posts_start_from = ($page_id - 1) * $number_of_posts;
+}
+ ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -51,33 +80,33 @@ session_start();
                             </div>
                         </div>
                         <div class="col-sm-6 col-md-5">
-                            <ul class="top-socia-share">
-                                <li>
-                                    <a href="index.html#"><i class="fa fa-facebook"></i></a>
-                                    <a href="index.html#"><i class="fa fa-twitter"></i></a>
-                                    <a href="index.html#"><i class="fa fa-instagram"></i></a>
-                                    <a href="index.html#"><i class="fa fa-linkedin"></i></a>
-                                    <a href="index.html#"><i class="fa fa-youtube-play"></i></a>
-                                </li>
-                                <li>
-                                    <!--a href="javascript:void(0)" data-toggle="modal" data-target="#user-modal"-->
-                                    <?php  if (isset($_SESSION['username'])) : ?>
-                           <b><a>Welcome &nbsp<?php echo $_SESSION['username']; ?></a></b>
-                         <?php endif ?></li>
+                          <ul class="top-socia-share">
+                              <li>
+                                  <a href="index.html#"><i class="fa fa-facebook"></i></a>
+                                  <a href="index.html#"><i class="fa fa-twitter"></i></a>
+                                  <a href="index.html#"><i class="fa fa-instagram"></i></a>
+                                  <a href="index.html#"><i class="fa fa-linkedin"></i></a>
+                                  <a href="index.html#"><i class="fa fa-youtube-play"></i></a>
+                              </li>
+                              <li>
+                                  <!--a href="javascript:void(0)" data-toggle="modal" data-target="#user-modal"-->
+                                  <?php  if (isset($_SESSION['username'])) : ?>
+                         <b><a>Welcome &nbsp<?php echo $_SESSION['username']; ?></a></b>
+                       <?php endif ?></li>
 
-                                </li>
-                                <li>
-                                  <a href="?logout='1'">Logout</a>
-                                    <!--div class="weather-top">
-                                        <i class="fa fa-cloud"></i>
-                                        <div class="weather-now">
-                                            <span class="degrees" id="output">- 5.9</span>
-                                            <span class="unit">C</span>
-                                        </div>
-                                        <div class="weather-city">New York</div>
-                                    </div-->
-                                </li>
-                            </ul>
+                              </li>
+                              <li>
+                                <a href="?logout='1'">Logout</a>
+                                  <!--div class="weather-top">
+                                      <i class="fa fa-cloud"></i>
+                                      <div class="weather-now">
+                                          <span class="degrees" id="output">- 5.9</span>
+                                          <span class="unit">C</span>
+                                      </div>
+                                      <div class="weather-city">New York</div>
+                                  </div-->
+                              </li>
+                          </ul>
                         </div>
                     </div>
                 </div>
@@ -530,11 +559,12 @@ session_start();
             </nav>
             <div class="clearfix"></div>
             <!-- /.End of navigation -->
+
             <div class="search">
                 <button id="btn-search-close" class="btn btn--search-close" aria-label="Close search form"> <i class="ti-close"></i></button>
-                <form class="search__form" action="javascript:void(0)" method="post">
-                    <input class="search__input" name="search" type="search" placeholder="Search and hit enter..."/>
-                    <span class="search__info">Hit enter to search or ESC to close</span>
+                <form class="search__form" action="index.php" method="post">
+                    <input class="search__input" name="search-title" type="search" placeholder="Search and hit enter..."/>
+                    <span class="search__info"><input type="submit" value="Search" name="search" hidden>Hit enter to search or ESC to close</span>
                 </form>
                 <div class="search__related">
                     <div class="search__suggestion">
@@ -551,6 +581,7 @@ session_start();
                     </div>
                 </div>
             </div>
+
             <!-- /.End of search full page  -->
             <!--<div class="height_40"></div>-->
             <!-- /.End of logo section -->

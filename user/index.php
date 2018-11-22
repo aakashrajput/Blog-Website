@@ -31,6 +31,10 @@ include("../routes/container_top.php");
                             <?php
                             include("../routes/category.php");
                             ?>
+                          </aside>
+                          </div>
+                          </div>
+
                 <div class=" container">
                     <div class="height_15"></div>
                     <div class="banner-content">
@@ -51,7 +55,7 @@ include("../routes/container_top.php");
                             <!--/.End of banner content-->
                         </div>
                         <?php
-                        include("../routes/latest_article.php");
+                        include("../routes/latest_news.php");
                         ?>
                             <!-- /.End of pagination -->
                             <div class="banner-content">
