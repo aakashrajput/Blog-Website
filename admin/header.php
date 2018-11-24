@@ -326,22 +326,22 @@ if(isset($_POST['checkboxes'])){
         <!-- Divider -->
         <hr class="my-3">
         <!-- Heading -->
-        <h6 class="navbar-heading text-muted">Documentation</h6>
+        <h6 class="navbar-heading text-muted">Blog Section</h6>
         <!-- Navigation -->
         <ul class="navbar-nav mb-md-3">
           <li class="nav-item">
             <a class="nav-link" href="../docs/getting-started/overview.html">
-              <i class="ni ni-spaceship"></i> Getting started
+              <i class="ni ni-spaceship"></i> Add Post
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../docs/getting-started/overview.html">
+              <i class="ni ni-spaceship"></i> Add News
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="../docs/foundation/colors.html">
-              <i class="ni ni-palette"></i> Foundation
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../docs/components/alerts.html">
-              <i class="ni ni-ui-04"></i> Components
+              <i class="ni ni-palette"></i> Add Category
             </a>
           </li>
         </ul>
