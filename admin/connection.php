@@ -1,5 +1,5 @@
 <?php
 
 $link=mysqli_connect("localhost","root","");
-mysqli_select_db($link,"develophowto");
+mysqli_select_db($link,"cms");
 ?>
