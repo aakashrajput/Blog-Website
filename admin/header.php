@@ -167,7 +167,7 @@ if(isset($_POST['checkboxes'])){
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
   <meta name="author" content="Creative Tim">
-  <title>PokeBlog - Admin DashBoard</title>
+  <title>DevelopHowTo - Admin DashBoard</title>
   <!-- Extra details for Live View on GitHub Pages -->
   <!-- Canonical SEO -->
 
@@ -330,18 +330,18 @@ if(isset($_POST['checkboxes'])){
         <!-- Navigation -->
         <ul class="navbar-nav mb-md-3">
           <li class="nav-item">
-            <a class="nav-link" href="../docs/getting-started/overview.html">
-              <i class="ni ni-spaceship"></i> Add Post
+            <a class="nav-link" href="add_post.php">
+              <i class="ni ni-books"></i> Write Post
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../docs/getting-started/overview.html">
+            <a class="nav-link" href="add_news.php">
               <i class="ni ni-spaceship"></i> Add News
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../docs/foundation/colors.html">
-              <i class="ni ni-palette"></i> Add Category
+            <a class="nav-link" href="add_category.php">
+              <i class="ni ni-world-2"></i> Add Category
             </a>
           </li>
         </ul>
