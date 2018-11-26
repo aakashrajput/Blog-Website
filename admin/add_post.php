@@ -23,13 +23,13 @@ include ("top-head.php");
             <div class="col-lg-8">
               <div class="form-group">
                 <label class="form-control-label" for="input-username">Title</label>
-                <input type="text" id="input-username" class="form-control form-control-alternative" placeholder="Username" value="This is a demo title!">
+                <input type="text" id="input-username" class="form-control form-control-alternative" placeholder="This is a demo title!">
               </div>
             </div>
             <div class="col-lg-4">
               <div class="form-group">
                 <label class="form-control-label" for="input-username">Tags</label>
-                <input type="text" id="input-username" class="form-control form-control-alternative" placeholder="Username" value="food, gadgets">
+                <input type="text" id="input-username" class="form-control form-control-alternative" placeholder="food, gadgets">
               </div>
             </div>
           </div>
@@ -37,7 +37,7 @@ include ("top-head.php");
             <div class="col-lg-6">
               <div class="form-group">
                 <label class="form-control-label" for="input-first-name">Category</label>
-                <input type="text" id="input-first-name" class="form-control form-control-alternative" placeholder="First name" value="Lucky">
+                <input type="text" id="input-first-name" class="form-control form-control-alternative" placeholder="Lucky">
               </div>
             </div>
             <div class="col-lg-6">

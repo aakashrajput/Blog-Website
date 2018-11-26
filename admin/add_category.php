@@ -16,30 +16,44 @@ include ("top-head.php");
       </div>
     </div>
     <div class="card-body">
-      <form>
+      <form action="" method="post">
+        <?php
+        if(isset($_POST['submit'])){
+                  $category = $_POST['category'];
+                  if(empty($category)){
+                    $error_msg = "Category Field is blank";
+                  } else {
+                    $query = "INSERT INTO `categories` (`id`, `category`) VALUES (NULL, '$category')";
+                    if(mysqli_query($link,$query)){
+                      $msg = "Category Added";
+                      $category = "";
+                    } else {
+                      $error_msg = "Failed to Add";
+                    }
+                  }
+                }
+            ?>
         <h6 class="heading-small text-muted mb-4">Category information</h6>
         <div class="pl-lg-4">
           <div class="row">
             <div class="col-lg-12">
               <div class="form-group">
                 <label class="form-control-label" for="input-username">Category Name</label>
-                <input type="text" id="input-username" class="form-control form-control-alternative" placeholder="Username" value="Hacking!">
+                <input type="text" id="input-username" class="form-control form-control-alternative" name="category" placeholder="Category!">
               </div>
             </div>
           </div>
         </div>
         <hr class="my-4" />
-      </form>
       <div class="col-xs-8">
-        <a href="#" class="btn btn-primary">Add Category</a>
-        <?php
-          if(isset($error)){
-            echo "<span style='color:red;' class='pull-right'>$error</span>";
-          } else if(isset($msg)) {
-            echo "<span style='color:green;' class='pull-right'>$msg</span>";
-          }
-         ?>
+        <input type="submit" name="submit" class="btn btn-primary" value="submit">
+        <?php if(isset($error_msg)){
+                     echo "<span style='color:red;' class='pull-right'>$error_msg</span>";
+                   }else if(isset($msg)) {
+                      echo "<span style='color:green;' class='pull-right'>$msg</span>";
+                   } ?>
       </div>
+    </form>
     </div>
   </div>
 </div>
