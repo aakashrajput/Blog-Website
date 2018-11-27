@@ -9,6 +9,7 @@ if(isset($_GET['post_id'])) {
   if(mysqli_num_rows($run) > 0) {
     $row = mysqli_fetch_array($run);
     $id = $row['id'];
+    $post_id = $row['id'];
     $date = getdate($row['date']);
     $day = $date['mday'];
     $month = $date['month'];
