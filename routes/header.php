@@ -48,12 +48,15 @@ if(isset($_GET['post_id'])) {
     $month = $date['month'];
     $year = $date['year'];
     $title = $row['title'];
+    $sub_title = $row['sub_title'];
     $tags = $row['tags'];
     $image = $row['image'];
     $author_image = $row['author_image'];
     $author = $row['author'];
     $categories = $row['categories'];
-    $post_data = $row['post_data1'];
+    $post_data1 = $row['post_data1'];
+    $post_data2 = $row['post_data2'];
+    $post_data3 = $row['post_data3'];
 
    }else {
     header('location: index.php');
