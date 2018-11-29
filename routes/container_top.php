@@ -48,7 +48,7 @@
                                   $container_categories = $container_row['categories'];
                                   $container_image = $container_row['image'];
                                   $container_title = $container_row['title'];
-                                  $container_data = $container_row['post_data'];
+                                  $container_data = $container_row['post_data1'];
                             ?>
                             <div class="item mas-m-b">
                                 <div class="mas-item masonry-sm">
@@ -78,7 +78,7 @@
                                   $container_categories = $container_row['categories'];
                                   $container_image = $container_row['image'];
                                   $container_title = $container_row['title'];
-                                  $container_data = $container_row['post_data'];
+                                  $container_data = $container_row['post_data1'];
                             ?>
                             <div class="item">
                                 <div class="mas-item masonry-sm">
@@ -110,7 +110,7 @@
                                   $container_categories = $container_row['categories'];
                                   $container_image = $container_row['image'];
                                   $container_title = $container_row['title'];
-                                  $container_data = $container_row['post_data'];
+                                  $container_data = $container_row['post_data1'];
                             ?>
                             <div class="item">
                                 <div class="mas-item masonry-sm">
@@ -140,7 +140,7 @@
                                   $container_categories = $container_row['categories'];
                                   $container_image = $container_row['image'];
                                   $container_title = $container_row['title'];
-                                  $container_data = $container_row['post_data'];
+                                  $container_data = $container_row['post_data1'];
                             ?>
                             <div class="item">
                                 <div class="mas-item masonry-sm">
