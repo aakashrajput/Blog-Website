@@ -53,7 +53,7 @@ if(isset($_GET['post_id'])) {
     $author_image = $row['author_image'];
     $author = $row['author'];
     $categories = $row['categories'];
-    $post_data = $row['post_data'];
+    $post_data = $row['post_data1'];
 
    }else {
     header('location: index.php');

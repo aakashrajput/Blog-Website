@@ -42,7 +42,7 @@ include ("header.php");
                   $title = $row['title'];
                   $categories = $row['categories'];
                   $status = $row['status'];
-                  $post_data = $row['post_data'];
+                  $post_data = $row['post_data1'];
                   $date = getdate ($row['date']);
                   $day = $date['mday'];
                   $month = substr($date['month'],0,3);

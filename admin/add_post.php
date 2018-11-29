@@ -21,21 +21,27 @@ include ("top-head.php");
         if(isset($_POST['submit'])){
           //$author = $_POST['author'];
           $title = $_POST['title'];
+          $sub_title = $_POST['sub_title'];
           $tags = $_POST['tags'];
           $category = $_POST['category'];
-          $post_data = $_POST['data'];
+          $post_data1 = $_POST['data1'];
+          $post_data2 = $_POST['data2'];
+          $post_data3 = $_POST['data3'];
           $date = time();
 
 
                   if(empty($category)){
                     $error_msg = "Category Field is blank";
                   } else {
-                    $query = "INSERT INTO `posts` (`id`, `date`, `title`, `author`, `author_image`, `image`, `categories`,`tags`, `post_data`, `views`, `status`) VALUES (NULL, '$date', '$title', 'test user', 'favicon.png', 'img.png', '$category', '$tags', '$post_data', '0', 'unpublish')";
+                    $query = "INSERT INTO `posts` (`id`, `date`, `title`, `sub_title`, `author`, `author_image`, `image`, `categories`,`tags`, `post_data1`, `post_data2`, `post_data3`, `views`, `status`) VALUES (NULL, '$date', '$title', '$sub_title', 'test user', 'favicon.png', 'img.png', '$category', '$tags', '$post_data1', '$post_data2', '$post_data3', '0', 'unpublish')";
                     if(mysqli_query($link,$query)){
                       $msg = "post Added";
                       $category = "";
                     } else {
                       $error_msg = "Failed to Add";
+                      ini_set('display_errors', 1);
+                      ini_set('display_startup_errors', 1);
+                      error_reporting(E_ALL);
                     }
                   }
                 }
@@ -54,7 +60,7 @@ include ("top-head.php");
           <div class="col-lg-8">
             <div class="form-group">
               <label class="form-control-label" for="input-username">Sub Title</label>
-              <input type="text" id="input-username" name="title" class="form-control form-control-alternative" placeholder="This is a demo title!">
+              <input type="text" id="input-username" name="sub_title" class="form-control form-control-alternative" placeholder="This is a demo title!">
             </div>
           </div>
           <div class="col-lg-4">
@@ -71,13 +77,13 @@ include ("top-head.php");
                 <input type="text" id="input-first-name" name="category" class="form-control form-control-alternative" placeholder="Lucky">
               </div>
             </div>
-            <div class="col-lg-6">
+            <!--div class="col-lg-6">
               <div class="form-group">
                 <label class="form-control-label" for="input-last-name">Date</label>
                 <input class="form-control datepicker" name="date" placeholder="Select date" type="text" value="06/20/2018" />
               </div>
             </div>
-          </div>
+          </div-->
         </div>
         <hr class="my-4" />
         <!-- Description -->
@@ -85,19 +91,19 @@ include ("top-head.php");
         <div class="pl-lg-4">
           <div class="form-group">
             <label>Article</label>
-            <textarea rows="4" class="form-control form-control-alternative" name="data" placeholder="A few words about you ...">Write your article in here...</textarea>
+            <textarea rows="4" class="form-control form-control-alternative" name="data1" placeholder="A few words about you ...">Write your article in here...</textarea>
           </div>
         </div>
         <div class="pl-lg-4">
           <div class="form-group">
             <label>Article Paragraph 2</label>
-            <textarea rows="4" class="form-control form-control-alternative" name="data" placeholder="A few words about you ...">Write your article in here...</textarea>
+            <textarea rows="5" class="form-control form-control-alternative" name="data2" placeholder="A few words about you ...">Write your article in here...</textarea>
           </div>
         </div>
         <div class="pl-lg-4">
           <div class="form-group">
             <label>Article Paragraph 3</label>
-            <textarea rows="4" class="form-control form-control-alternative" name="data" placeholder="A few words about you ...">Write your article in here...</textarea>
+            <textarea rows="6" class="form-control form-control-alternative" name="data3" placeholder="A few words about you ...">Write your article in here...</textarea>
           </div>
         </div>
       <div class="col-xs-8">
