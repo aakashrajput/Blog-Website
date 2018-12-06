@@ -18,7 +18,7 @@
                     $author_image = $row['author_image'];
                     $categories = $row['categories'];
                     $tags = $row['tags'];
-                    $post_data = $row['post_data1'];
+                    $post_data = $row['post_data'];
                     $views = $row['views'];
                     $status = $row['status'];
                     $image = $row['image'];

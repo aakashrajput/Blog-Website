@@ -1,5 +1,7 @@
 <?php include ("../routes/db.php"); ?>
 <?php
+
+
 if(isset($_GET['del'])){
   $del_id = $_GET['del'];
   $del_check_query = "SELECT * FROM users WHERE id = $del_id";
@@ -164,6 +166,10 @@ if(isset($_POST['checkboxes'])){
 
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="no-cache">
+  <meta http-equiv="Expires" content="-1">
+  <meta http-equiv="Cache-Control" content="no-cache">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
   <meta name="author" content="Creative Tim">
@@ -180,6 +186,7 @@ if(isset($_POST['checkboxes'])){
   <link href="assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
   <!-- Argon CSS -->
   <link type="text/css" href="assets/css/argon.min.css%3Fv=1.0.0.css" rel="stylesheet">
+  <script src=".././ckeditor/ckeditor.js"></script>
 </head>
 
 <body>

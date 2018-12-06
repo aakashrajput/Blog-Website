@@ -20,13 +20,12 @@
                               <figure>
                                   <img src="assets/img/details-4.jpg" alt="" class="aligncenter img-responsive">
                               </figure>
-                              <h3><?php echo ucfirst($sub_title); ?></h3>
-                              <p><?php echo $post_data1?></p>
-                              <a href="assets/img/details-2.jpg" class="fluidbox_img">
+                              <?php echo $post_data1?>
+                              <!--a href="assets/img/details-2.jpg" class="fluidbox_img">
                                   <img src="assets/img/details-2.jpg" alt="Image" class="alignright img-responsive">
                               </a>
                               <p><?php echo $post_data2 ?></p>
-                              <p><?php echo $post_data3 ?></p>
+                              <p><?php echo $post_data3 ?></p-->
                           </div>
                           <!-- /.End of post details -->
                           <div class="stickyshare">
