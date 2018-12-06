@@ -1,0 +1,430 @@
+<?php include ("../routes/db.php"); ?>
+<?php
+
+session_start();
+
+  if (!isset($_SESSION['username'])) {
+    $_SESSION['msg'] = "You must log in first";
+    header('location: .././index.php');
+  }
+  if (isset($_GET['logout'])) {
+    session_destroy();
+    unset($_SESSION['username']);
+    header("location: .././index.php");
+  }
+
+if(isset($_GET['del'])){
+  $del_id = $_GET['del'];
+  $del_check_query = "SELECT * FROM users WHERE id = $del_id";
+  $del_check_run = mysqli_query($link, $del_check_query);
+  if(mysqli_num_rows($del_check_run)>0){
+    $del_query = "DELETE FROM `users` WHERE `users`.`id` = $del_id";
+    if(mysqli_query($link,$del_query)){
+      $msg = "User has been deleted";
+    } else {
+      $error = "User has not been deleted";
+    }
+  }else {
+    header ("location: index.php");
+  }
+}
+
+if(isset($_GET['del_cat'])){
+  $del_id = $_GET['del_cat'];
+  $del_check_query = "SELECT * FROM categories WHERE id = $del_id";
+  $del_check_run = mysqli_query($link, $del_check_query);
+  if(mysqli_num_rows($del_check_run)>0){
+    $del_query = "DELETE FROM `categories` WHERE `categories`.`id` = $del_id";
+    if(mysqli_query($link,$del_query)){
+      $msg = "category has been deleted";
+    } else {
+      $error = "category has not been deleted";
+    }
+  }else {
+    header ("location: index.php");
+  }
+}
+
+/**** Comment Section *****/
+
+if(isset($_GET['del_comment'])){
+  $del_id = $_GET['del_comment'];
+  $del_check_query = "SELECT * FROM comments WHERE id = $del_id";
+  $del_check_run = mysqli_query($link, $del_check_query);
+  if(mysqli_num_rows($del_check_run)>0){
+    $del_query = "DELETE FROM `comments` WHERE `comments`.`id` = $del_id";
+    if(mysqli_query($link,$del_query)){
+      $msg = "comment has been deleted";
+    } else {
+      $error = "comment has not been deleted";
+    }
+  }else {
+    header ("location: index.php");
+  }
+}
+
+if(isset($_GET['approve'])){
+  $approve_id = $_GET['approve'];
+  $approve_check_query = "SELECT * FROM comments WHERE id = $approve_id";
+  $approve_check_run = mysqli_query($link, $approve_check_query);
+  if(mysqli_num_rows($approve_check_run) > 0){
+    $approve_query = "UPDATE `comments` SET `status` = 'approve' WHERE `comments`.`id` = $approve_id";
+    if(mysqli_query($link,$approve_query)){
+      $msg = "comment has been Approved";
+    } else {
+      $error = "comment has not been Approved";
+    }
+  }else {
+    header ("location: index.php");
+  }
+}
+
+if(isset($_GET['unapprove'])){
+  $unapprove_id = $_GET['unapprove'];
+  $unapprove_check_query = "SELECT * FROM comments WHERE id = $unapprove_id";
+  $unapprove_check_run = mysqli_query($link, $unapprove_check_query);
+  if(mysqli_num_rows($unapprove_check_run) > 0){
+    $unapprove_query = "UPDATE `comments` SET `status` = 'unapprove' WHERE `comments`.`id` = $unapprove_id";
+    if(mysqli_query($link,$unapprove_query)){
+      $msg = "comment has been unapproved";
+    } else {
+      $error = "comment has not been unapproved";
+    }
+  }else {
+    header ("location: index.php");
+  }
+}
+
+/** Comments Section end ****/
+
+/**** Posts Section *****/
+
+if(isset($_GET['del_post'])){
+  $del_id = $_GET['del_post'];
+  $del_check_query = "SELECT * FROM posts WHERE id = $del_id";
+  $del_check_run = mysqli_query($link, $del_check_query);
+  if(mysqli_num_rows($del_check_run)>0){
+    $del_query = "DELETE FROM `posts` WHERE `posts`.`id` = $del_id";
+    if(mysqli_query($link,$del_query)){
+      $msg = "comment has been deleted";
+    } else {
+      $error = "comment has not been deleted";
+    }
+  }else {
+    header ("location: index.php");
+  }
+}
+
+if(isset($_GET['approve_post'])){
+  $approve_id = $_GET['approve_post'];
+  $approve_check_query = "SELECT * FROM posts WHERE id = $approve_id";
+  $approve_check_run = mysqli_query($link, $approve_check_query);
+  if(mysqli_num_rows($approve_check_run) > 0){
+    $approve_query = "UPDATE `posts` SET `status` = 'publish' WHERE `posts`.`id` = $approve_id";
+    if(mysqli_query($link,$approve_query)){
+      $msg = "Post has been Published";
+    } else {
+      $error = "Post has not been Published";
+    }
+  }else {
+    header ("location: index.php");
+  }
+}
+
+if(isset($_GET['unapprove_post'])){
+  $unapprove_id = $_GET['unapprove_post'];
+  $unapprove_check_query = "SELECT * FROM posts WHERE id = $unapprove_id";
+  $unapprove_check_run = mysqli_query($link, $unapprove_check_query);
+  if(mysqli_num_rows($unapprove_check_run) > 0){
+    $unapprove_query = "UPDATE `posts` SET `status` = 'unpublish' WHERE `posts`.`id` = $unapprove_id";
+    if(mysqli_query($link,$unapprove_query)){
+      $msg = "posts has been unapproved";
+    } else {
+      $error = "posts has not been unapproved";
+    }
+  }else {
+    header ("location: index.php");
+  }
+}
+
+/** Posts Section end ****/
+
+
+if(isset($_POST['checkboxes'])){
+  foreach($_POST['checkboxes'] as $user_id){
+    $bulk_option = $_POST['bulk-option'];
+    if($bulk_option == 'Delete') {
+
+      $bulk_del_query = "DELETE FROM `users` WHERE `users`.`id` = $user_id";
+      mysqli_query($link, $bulk_del_query);
+
+    } else if($bulk_option == 'Author'){
+
+      $bulk_author_query = "UPDATE `users` SET `role` = 'author' WHERE `users`.`id` = $user_id";
+      mysqli_query($link, $bulk_author_query);
+
+    } else if($bulk_option == 'Admin'){
+
+      $bulk_admin_query = "UPDATE `users` SET `role` = 'admin' WHERE `users`.`id` = $user_id";
+      mysqli_query($link, $bulk_admin_query);
+
+    }
+  }
+}
+ ?>
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="no-cache">
+  <meta http-equiv="Expires" content="-1">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
+  <meta name="author" content="Creative Tim">
+  <title>DevelopHowTo - User DashBoard</title>
+  <!-- Extra details for Live View on GitHub Pages -->
+  <!-- Canonical SEO -->
+
+  <!-- Google Tag Manager -->
+  <link href="assets/img/brand/favicon.pn" rel="icon" type="image/png">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+  <!-- Icons -->
+  <link href="assets/vendor/nucleo/css/nucleo.css" rel="stylesheet">
+  <link href="assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <!-- Argon CSS -->
+  <link type="text/css" href="assets/css/argon.min.css%3Fv=1.0.0.css" rel="stylesheet">
+  <script src=".././ckeditor/ckeditor.js"></script>
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NKDMSK6" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <!-- Sidenav -->
+  <nav class="navbar navbar-vertical fixed-left navbar-expand-md navbar-light bg-white" id="sidenav-main">
+    <div class="container-fluid">
+      <!-- Toggler -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- Brand -->
+      <a class="navbar-brand pt-0" href="index.html">
+        <img src="../assets/img/logo-big1.png" class="navbar-brand-img" alt="...">
+      </a>
+      <!-- User -->
+      <ul class="nav align-items-center d-md-none">
+        <li class="nav-item dropdown">
+          <a class="nav-link nav-link-icon" href="index.html#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="ni ni-bell-55"></i>
+          </a>
+          <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right" aria-labelledby="navbar-default_dropdown_1">
+            <a class="dropdown-item" href="index.html#">Action</a>
+            <a class="dropdown-item" href="index.html#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="index.html#">Something else here</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link" href="index.html#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <div class="media align-items-center">
+              <span class="avatar avatar-sm rounded-circle">
+                <img alt="Image placeholder" src="assets/img/theme/team-1-800x800.jpg">
+              </span>
+            </div>
+          </a>
+          <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
+            <div class=" dropdown-header noti-title">
+              <h6 class="text-overflow m-0">Welcome!</h6>
+            </div>
+            <a href="examples/profile.html" class="dropdown-item">
+              <i class="ni ni-single-02"></i>
+              <span>My profile</span>
+            </a>
+            <a href="examples/profile.html" class="dropdown-item">
+              <i class="ni ni-settings-gear-65"></i>
+              <span>Settings</span>
+            </a>
+            <a href="examples/profile.html" class="dropdown-item">
+              <i class="ni ni-calendar-grid-58"></i>
+              <span>Activity</span>
+            </a>
+            <a href="examples/profile.html" class="dropdown-item">
+              <i class="ni ni-support-16"></i>
+              <span>Support</span>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="index.html#!" class="dropdown-item">
+              <i class="ni ni-user-run"></i>
+              <span>Logout</span>
+            </a>
+          </div>
+        </li>
+      </ul>
+      <!-- Collapse -->
+      <div class="collapse navbar-collapse" id="sidenav-collapse-main">
+        <!-- Collapse header -->
+        <div class="navbar-collapse-header d-md-none">
+          <div class="row">
+            <div class="col-6 collapse-brand">
+              <a href="index.html">
+                <img src=".././assets/img/icon.png">
+              </a>
+            </div>
+            <div class="col-6 collapse-close">
+              <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle sidenav">
+                <span></span>
+                <span></span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Form -->
+        <form class="mt-4 mb-3 d-md-none">
+          <div class="input-group input-group-rounded input-group-merge">
+            <input type="search" class="form-control form-control-rounded form-control-prepended" placeholder="Search" aria-label="Search">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <span class="fa fa-search"></span>
+              </div>
+            </div>
+          </div>
+        </form>
+        <!-- Navigation -->
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.php">
+              <i class="ni ni-tv-2 text-primary"></i> Home
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="categories.php">
+              <i class="ni ni-planet text-blue"></i> Categories
+            </a>
+          </li>
+          <!--li class="nav-item">
+            <a class="nav-link" href="maps.html">
+              <i class="ni ni-pin-3 text-orange"></i> Maps
+            </a>
+          </li-->
+          <li class="nav-item">
+            <a class="nav-link" href="profile.php">
+              <i class="ni ni-single-02 text-yellow"></i> User profile
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="user.php">
+              <i class="ni ni-single-02 text-red"></i> Users List
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="comments.php">
+              <i class="ni ni-world text-green"></i> Comments List
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="postslist.php">
+              <i class="ni ni-single-copy-04 text-orange"></i> Posts List
+            </a>
+          </li>
+          <!--li class="nav-item">
+            <a class="nav-link" href="login.html">
+              <i class="ni ni-key-25 text-info"></i> Login
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="register.html">
+              <i class="ni ni-circle-08 text-pink"></i> Register
+            </a>
+          </li-->
+        </ul>
+        <!-- Divider -->
+        <hr class="my-3">
+        <!-- Heading -->
+        <h6 class="navbar-heading text-muted">Blog Section</h6>
+        <!-- Navigation -->
+        <ul class="navbar-nav mb-md-3">
+          <li class="nav-item">
+            <a class="nav-link" href="add_post.php">
+              <i class="ni ni-books"></i> Write Post
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="add_news.php">
+              <i class="ni ni-spaceship"></i> Add News
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="add_category.php">
+              <i class="ni ni-world-2"></i> Add Category
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Main content -->
+  <div class="main-content">
+    <!-- Top navbar -->
+    <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
+      <div class="container-fluid">
+        <!-- Brand -->
+        <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="index.php">User Dashboard</a>
+        <!-- Form -->
+        <form class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">
+          <div class="form-group mb-0">
+            <div class="input-group input-group-alternative">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-search"></i></span>
+              </div>
+              <input class="form-control" placeholder="Search" type="text">
+            </div>
+          </div>
+        </form>
+        <!-- User -->
+        <ul class="navbar-nav align-items-center d-none d-md-flex">
+          <li class="nav-item dropdown">
+            <a class="nav-link pr-0" href="tables.html#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <div class="media align-items-center">
+                <span class="avatar avatar-sm rounded-circle">
+                  <img alt="Image placeholder" src="./assets/img/theme/team-4-800x800.jpg">
+                </span>
+                <div class="media-body ml-2 d-none d-lg-block">
+                  <span class="mb-0 text-sm  font-weight-bold"><?php echo $_SESSION['username']; ?></span>
+                </div>
+              </div>
+            </a>
+            <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
+              <div class=" dropdown-header noti-title">
+                <h6 class="text-overflow m-0">Welcome!</h6>
+              </div>
+              <a href="profile.html" class="dropdown-item">
+                <i class="ni ni-single-02"></i>
+                <span>My profile</span>
+              </a>
+              <a href="profile.html" class="dropdown-item">
+                <i class="ni ni-settings-gear-65"></i>
+                <span>Settings</span>
+              </a>
+              <a href="profile.html" class="dropdown-item">
+                <i class="ni ni-calendar-grid-58"></i>
+                <span>Activity</span>
+              </a>
+              <a href="profile.html" class="dropdown-item">
+                <i class="ni ni-support-16"></i>
+                <span>Support</span>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="tables.html#!" class="dropdown-item">
+                <i class="ni ni-user-run"></i>
+                <span>Logout</span>
+              </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- Header -->
