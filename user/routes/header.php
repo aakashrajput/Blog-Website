@@ -12,7 +12,13 @@ session_start();
     header("location: .././index.php");
   }
 ?>
-<?php include (".././routes/db.php"); ?>
+<?php include ("db.php");
+$url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+
+
+
+
+?>
 <?php
 $number_of_posts = 3;
 
@@ -40,6 +46,35 @@ if(isset($_POST['search'])) {
   $total_pages = ceil($all_posts / $number_of_posts);
   $posts_start_from = ($page_id - 1) * $number_of_posts;
 }
+
+if(isset($_GET['post_id'])) {
+  $post_id = $_GET['post_id'];
+  $views_query = "UPDATE `posts` SET `views` = views + 1 WHERE `posts`.`id` = $post_id";
+  mysqli_query($link,$views_query);
+  $query = "SELECT * FROM posts where status = 'publish' and id = $post_id";
+  $run = mysqli_query($link,$query);
+
+  if(mysqli_num_rows($run) > 0) {
+    $row = mysqli_fetch_array($run);
+    $id = $row['id'];
+    $date = getdate($row['date']);
+    $day = $date['mday'];
+    $month = $date['month'];
+    $year = $date['year'];
+    $title = $row['title'];
+    //$sub_title = $row['sub_title'];
+    $tags = $row['tags'];
+    $image = $row['image'];
+    $author_image = $row['author_image'];
+    $author = $row['author'];
+    $categories = $row['categories'];
+    $post_data1 = $row['post_data'];
+
+   }else {
+    header('location: index.php');
+  }
+}
+
  ?>
 <!DOCTYPE html>
 <html lang="en">
