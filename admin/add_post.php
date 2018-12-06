@@ -32,8 +32,12 @@ include ("top-head.php");
           //if(isset($_FILES['image'])){
                   $errors= array();
                   $file_name = $_FILES['image']['name'];
+                  $file_name2 = $_FILES['photo2']['name'];
+                  $file_name3 = $_FILES['photo3']['name'];
                   $file_size =$_FILES['image']['size'];
                   $file_tmp =$_FILES['image']['tmp_name'];
+                  $file_tmp2 =$_FILES['photo2']['tmp_name'];
+                  $file_tmp3 =$_FILES['photo3']['tmp_name'];
                   $file_type=$_FILES['image']['type'];
                   $file_ext = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
                   //$file_ext=strtolower(end(explode('.',$_FILES['image']['name'])));
@@ -49,22 +53,23 @@ include ("top-head.php");
                   }
 
                   if(empty($errors)==true){
-                  move_uploaded_file($file_tmp,"include/article_uploads/".$file_name);
+                  $location = "include/article_uploads/";
+                  move_uploaded_file($file_tmp, $location.$file_name);
+                  move_uploaded_file($file_tmp2, $location.$file_name2);
+                  move_uploaded_file($file_tmp3, $location.$file_name3);
                   if(empty($category)){
                     $error_msg = "Category Field is blank";
                   } else {
-                    $query = "INSERT INTO `posts` (`id`, `date`, `title`, `sub_title`, `author`, `author_image`, `image`, `categories`,`tags`, `post_data1`, `post_data2`, `post_data3`, `views`, `status`,`photo1`) VALUES (NULL, '$date', '$title', '$sub_title', 'test user', 'favicon.png', 'img.png', '$category', '$tags', '$post_data1', '$post_data2', '$post_data3', '0', 'unpublish', '$file_name')";
+                    $query = "INSERT INTO `posts` (`id`, `date`, `title`, `sub_title`, `author`, `author_image`, `image`, `categories`,`tags`, `post_data1`, `post_data2`, `post_data3`, `views`, `status`,`photo1`, `photo2`, `photo3`, `location1`, `location2`, `location3`) VALUES (NULL, '$date', '$title', '$sub_title', 'test user', 'favicon.png', 'img.png', '$category', '$tags', '$post_data1', '$post_data2', '$post_data3', '0', 'unpublish', '$file_name', '$file_name2', '$file_name3', '$location.$file_name', 'location.$file_name2', 'location.$file_name3')";
                     if(mysqli_query($link,$query)){
                       $msg = "post Added";
                       //$category = "";
                     } else {
                       $error_msg = "Failed to Add";
+                      //print_r($errors);
                     }
                   }
                 }
-                  }else{
-                  $error_msg = "Failed to Add";
-                  print_r($errors);
                   }
             ?>
         <h6 class="heading-small text-muted mb-4">Post information</h6>
@@ -126,19 +131,19 @@ include ("top-head.php");
         <div class="pl-lg-4">
           <div class="form-group">
             <label>Article</label>
-            <textarea rows="4" class="form-control form-control-alternative" name="data1" placeholder="A few words about you ...">Write your article in here...</textarea>
+            <textarea rows="4" class="form-control form-control-alternative" name="data1">Write your article in here...</textarea>
           </div>
         </div>
         <div class="pl-lg-4">
           <div class="form-group">
             <label>Article Paragraph 2</label>
-            <textarea rows="5" class="form-control form-control-alternative" name="data2" placeholder="A few words about you ...">Write your article in here...</textarea>
+            <textarea rows="5" class="form-control form-control-alternative" name="data2">Write your article in here...</textarea>
           </div>
         </div>
         <div class="pl-lg-4">
           <div class="form-group">
             <label>Article Paragraph 3</label>
-            <textarea rows="6" class="form-control form-control-alternative" name="data3" placeholder="A few words about you ...">Write your article in here...</textarea>
+            <textarea rows="6" class="form-control form-control-alternative" name="data3">Write your article in here...</textarea>
           </div>
         </div>
       <div class="col-xs-8">

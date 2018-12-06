@@ -87,6 +87,30 @@ include "include/db.php";
   </form>
                                 <?php
 
+
+                                mysqli_query($link,"insert into posts
+                                values(
+                                '',
+                                '$_POST[title]',
+                                '$_POST[sub_title]',
+                                '',
+                                '',
+                                '',
+                                '$_POST[category]',
+                                '$_POST[tags]',
+                                '$_POST[data1]',
+                                '$_POST[data2]',
+                                '$_POST[data3]',
+                                '0',
+                                'unpublish',
+                                '$_POST[image]',
+                                '$_POST[photo2]',
+                                '$_POST[photo3]',
+                                '',
+                                '',
+                                ''
+                                )")
+
                                 if (isset($_POST['submit'])) {
                                   $title = $_POST['title'];
                                   $sub_title = $_POST['sub_title'];
