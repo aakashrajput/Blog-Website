@@ -87,7 +87,7 @@ include "include/db.php";
   </form>
                                 <?php
 
-                                if (isset($_FILES) & !empty($_FILES)) {
+                                if (isset($_POST['submit'])) {
                                   $title = $_POST['title'];
                                   $sub_title = $_POST['sub_title'];
                                   $tags = $_POST['tags'];
@@ -95,39 +95,26 @@ include "include/db.php";
                                   $post_data1 = $_POST['data1'];
                                   $post_data2 = $_POST['data2'];
                                   $post_data3 = $_POST['data3'];
-                                  $date = time();
+                                  $cdate = time();
                                   $photo1 = $_FILES['photo1']['name'];
                                   $size = $_FILES['photo1']['size'];
                                   $type = $_FILES['photo1']['type'];
                                   $tmp_name = $_FILES['photo1']['tmp_name'];
                                   //$username = $_SESSION['username'];
-                                }
+
                                 $location = "include/article_uploads/";
-                                $maxsize= 10000000;
-                                $types = array('image/jpeg', 'image/png');
-                                if (isset($photo1) &!empty($photo1)){
-                                    if(in_array($_FILES['photo1']['type'], $types) && $size <= $maxsize) {
-                                      if(move_uploaded_file($tmp_name, $location.$photo1)) {
-                                        $sql= "INSERT INTO `posts` (emp_name,emp_name2, emp_domain, emp_email, emp_state, emp_contact, emp_skills, emp_img, emp_dor, /*emp_about,*/emp_pass, username, location) VALUES ('$emp_name','$emp_name2','$emp_domain','$emp_email','$emp_state','$emp_contact', '$emp_skills', '$emp_img','$emp_dor','$emp_pass', '$username', '$location$emp_img')";
-                                        $res = mysqli_query($link, $sql);
-                                        if($res) {
-                                          ?>
-                                          <div class="alert alert-success col-lg-12 col-lg-push-0">
-                                              Employee Added successfully
-                                          </div>
-                                          <?php
-
-                                        }
-
-                                      }
-                                      else {
-                                        echo "Failed to Upload";
-                                      }
-                                    }
-                                    else{
-                                      echo "File Should be jpeg image only & 100 kb in size";
-                                    }
-
+                                //$maxsize= 10000000;
+                                //$types = array('image/jpeg', 'image/png');
+                                if(empty($category)){
+                                  $error_msg = "Category Field is blank";
+                                } else {
+                                  move_uploaded_file($tmp_name, $location.$photo1);
+                                  $query = "INSERT INTO `posts` (`id`, `date`, `title`, `sub_title`, `author`, `author_image`, `image`, `categories`,`tags`, `post_data1`, `post_data2`, `post_data3`, `views`, `status`,`photo1`) VALUES (NULL, '$cdate', '$title', '$sub_title', 'test user', 'favicon.png', 'img.png', '$category', '$tags', '$post_data1', '$post_data2', '$post_data3', '0', 'unpublish', '$photo1')";
+                                  if(mysqli_query($link,$query)){
+                                    $msg = "post Added";
+                                    //$category = "";
+                                  } else {
+                                    $error_msg = "Failed to Add";
+                                  }
                                 }
-
-            ?>
+                              }
