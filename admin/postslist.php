@@ -26,7 +26,6 @@ include ("header.php");
                 <th scope="col">Date</th>
                 <th scope="col">Author</th>
                 <th scope="col">Post Title</th>
-                <th scope="col">Post Data</th>
                 <th scope="col">Category</th>
                 <th scope="col">Status</th>
                 <th scope="col">Approve</th>
@@ -42,7 +41,6 @@ include ("header.php");
                   $title = $row['title'];
                   $categories = $row['categories'];
                   $status = $row['status'];
-                  $post_data = $row['post_data'];
                   $date = getdate ($row['date']);
                   $day = $date['mday'];
                   $month = substr($date['month'],0,3);
@@ -61,13 +59,13 @@ include ("header.php");
                 <?php echo $author; ?>
                 </td>
                 <td>
-                  <?php echo $title; ?>
+                  <a href="test_post.php?post_id=<?php echo $id ?>"><?php echo $title; ?></a>
                 </td>
-                <td>
+                <!--td>
                   <span class="badge badge-dot mr-4">
                     <i class="bg-warning"></i><?php echo $post_data; ?>
                   </span>
-                </td>
+                </td-->
                 <td>
                   <?php echo $categories; ?>
                 </td>
