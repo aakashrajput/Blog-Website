@@ -1,4 +1,5 @@
-<?php include('user_server.php') ?>
+<?php include('user_server.php');
+include('admin_server.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
