@@ -2,7 +2,7 @@
 include("header.php");
 ?>
 
-    <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 600px; background-image: url(./assets/img/theme/profile-cover.jpg); background-size: cover; background-position: center top;">
+    <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 600px; background-image: url(.././assets/img/profile_img1.jpeg); background-size: cover; background-position: center top;">
       <!-- Mask -->
       <span class="mask bg-gradient-default opacity-8"></span>
       <!-- Header container -->
@@ -11,7 +11,7 @@ include("header.php");
           <div class="col-lg-7 col-md-10">
             <h1 class="display-2 text-white">Hello <?php  if (isset($_SESSION['username'])) : echo $_SESSION['username']; endif ?></h1>
             <p class="text-white mt-0 mb-5">This is your profile page. You can see the progress you've made with your work and manage your projects or assigned tasks</p>
-            <a href="profile.html#!" class="btn btn-info">Edit profile</a>
+          <input class="btn btn-primary" value="Edit Profile">
           </div>
         </div>
       </div>
@@ -25,52 +25,71 @@ include("header.php");
               <div class="col-lg-3 order-lg-2">
                 <div class="card-profile-image">
                   <a href="profile.html#">
-                    <img src="./assets/img/theme/team-4-800x800.jpg" class="rounded-circle">
+                    <img src=".././assets/img/profile_img1.jpeg" class="rounded-circle">
                   </a>
                 </div>
               </div>
             </div>
             <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
-              <div class="d-flex justify-content-between">
+              <!--div class="d-flex justify-content-between">
                 <a href="profile.html#" class="btn btn-sm btn-info mr-4">Connect</a>
                 <a href="profile.html#" class="btn btn-sm btn-default float-right">Message</a>
-              </div>
+              </div-->
             </div>
             <div class="card-body pt-0 pt-md-4">
               <div class="row">
                 <div class="col">
                   <div class="card-profile-stats d-flex justify-content-center mt-md-5">
                     <div>
-                      <span class="heading">22</span>
-                      <span class="description">Friends</span>
+                      <span class="heading"></span>
+                      <span class="description"></span>
                     </div>
                     <div>
-                      <span class="heading">10</span>
-                      <span class="description">Photos</span>
+                      <span class="heading"></span>
+                      <span class="description"></span>
                     </div>
                     <div>
-                      <span class="heading">89</span>
-                      <span class="description">Comments</span>
+                      <span class="heading"></span>
+                      <span class="description"></span>
                     </div>
                   </div>
                 </div>
               </div>
               <div class="text-center">
+                <?php
+                  $query = "SELECT * FROM users";
+                  $run = mysqli_query($link,$query);
+
+                  if(mysqli_num_rows($run) > 0) {
+                    $row = mysqli_fetch_array($run);
+                    $username = $_SESSION['username'];
+                    $email = $row['email'];
+                    $fname = $row['first_name'];
+                    $lname = $row['last_name'];
+                    $school = $row['school'];
+                    $city = $row['city'];
+                    $country = $row['country'];
+                    $about = $row['details'];
+                    $place = "$city, $country";
+                    $age = $row['age'];
+
+
+                ?>
                 <h3>
-                  <?php  if (isset($_SESSION['username'])) : echo $_SESSION['username']; endif ?><span class="font-weight-light">, 27</span>
+                  <?php  if (isset($_SESSION['username'])) : echo $_SESSION['username']; endif ?><span class="font-weight-light">, <?php echo $age; ?></span>
                 </h3>
                 <div class="h5 font-weight-300">
-                  <i class="ni location_pin mr-2"></i>Bucharest, Romania
+                  <i class="ni location_pin mr-2"></i><?php echo $place; ?>
                 </div>
                 <div class="h5 mt-4">
-                  <i class="ni business_briefcase-24 mr-2"></i>Solution Manager - Creative Tim Officer
+                  <i class="ni business_briefcase-24 mr-2"></i>Author - DevelopHowTo
                 </div>
                 <div>
-                  <i class="ni education_hat mr-2"></i>University of Computer Science
+                  <i class="ni education_hat mr-2"></i><?php echo $school; ?>
                 </div>
                 <hr class="my-4" />
-                <p>Ryan — the name taken by Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and records all of his own music.</p>
-                <a href="profile.html#">Show more</a>
+                <p><?php echo $about; }?></p>
+                <a href="profile.php#">Show more</a>
               </div>
             </div>
           </div>
@@ -88,20 +107,44 @@ include("header.php");
               </div>
             </div>
             <div class="card-body">
-              <form>
+              <form action="" method="POST" name="form1" enctype="multipart/form-data">
+                <?php
+                if(isset($_POST['submit'])){
+                  $username = $_SESSION['username'];
+                  $email = $_POST['email'];
+                  $fname = $_POST['fname'];
+                  $lname = $_POST['lname'];
+                  $school = $_POST['school'];
+                  $city = $_POST['city'];
+                  $country = $_POST['country'];
+                  $about = $_POST['about'];
+                          if(empty($email)){
+                            $error_msg = "Email Field is blank";
+                          } else {
+                            $query = "UPDATE `users` SET first_name = '$fname', last_name = '$lname', email = '$email', city = '$city', country = '$country', school = '$school', image = 'lol.png', details = '$about' WHERE `users`.`username` = '$username'";
+                            if(mysqli_query($link,$query)){
+                              $msg = "Updated!";
+                              //$category = "";
+                            } else {
+                              $error_msg = "Not Updated!";
+                              //print_r($errors);
+                            }
+                          }
+                          }
+                    ?>
                 <h6 class="heading-small text-muted mb-4">User information</h6>
                 <div class="pl-lg-4">
                   <div class="row">
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label class="form-control-label" for="input-username">Username</label>
-                        <input type="text" id="input-username" class="form-control form-control-alternative" placeholder="Username" value="lucky.jesse">
+                        <input type="text" id="input-username" class="form-control form-control-alternative" placeholder="Username" value="<?php  echo $_SESSION['username']; ?>">
                       </div>
                     </div>
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label class="form-control-label" for="input-email">Email address</label>
-                        <input type="email" id="input-email" class="form-control form-control-alternative" placeholder="jesse@example.com">
+                        <input type="email" name="email" id="input-email" class="form-control form-control-alternative" placeholder="charizard@example.com">
                       </div>
                     </div>
                   </div>
@@ -109,13 +152,13 @@ include("header.php");
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label class="form-control-label" for="input-first-name">First name</label>
-                        <input type="text" id="input-first-name" class="form-control form-control-alternative" placeholder="First name" value="Lucky">
+                        <input type="text" name="fname" id="input-first-name" class="form-control form-control-alternative" placeholder="First name" value="Lucky">
                       </div>
                     </div>
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label class="form-control-label" for="input-last-name">Last name</label>
-                        <input type="text" id="input-last-name" class="form-control form-control-alternative" placeholder="Last name" value="Jesse">
+                        <input type="text" name="lname" id="input-last-name" class="form-control form-control-alternative" placeholder="Last name" value="Jesse">
                       </div>
                     </div>
                   </div>
@@ -127,28 +170,22 @@ include("header.php");
                   <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
-                        <label class="form-control-label" for="input-address">Address</label>
-                        <input id="input-address" class="form-control form-control-alternative" placeholder="Home Address" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09" type="text">
+                        <label class="form-control-label" for="input-address">School/Work</label>
+                        <input id="input-address" name="school" class="form-control form-control-alternative" placeholder="school" value="University of Computer Science" type="text">
                       </div>
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col-lg-4">
+                    <div class="col-lg-6">
                       <div class="form-group">
                         <label class="form-control-label" for="input-city">City</label>
-                        <input type="text" id="input-city" class="form-control form-control-alternative" placeholder="City" value="New York">
+                        <input type="text" name="city" id="input-city" class="form-control form-control-alternative" placeholder="City" value="New York">
                       </div>
                     </div>
-                    <div class="col-lg-4">
+                    <div class="col-lg-6">
                       <div class="form-group">
                         <label class="form-control-label" for="input-country">Country</label>
-                        <input type="text" id="input-country" class="form-control form-control-alternative" placeholder="Country" value="United States">
-                      </div>
-                    </div>
-                    <div class="col-lg-4">
-                      <div class="form-group">
-                        <label class="form-control-label" for="input-country">Postal code</label>
-                        <input type="number" id="input-postal-code" class="form-control form-control-alternative" placeholder="Postal code">
+                        <input type="text" name="country" id="input-country" class="form-control form-control-alternative" placeholder="Country" value="United States">
                       </div>
                     </div>
                   </div>
@@ -159,8 +196,17 @@ include("header.php");
                 <div class="pl-lg-4">
                   <div class="form-group">
                     <label>About Me</label>
-                    <textarea rows="4" class="form-control form-control-alternative" placeholder="A few words about you ...">A beautiful Dashboard for Bootstrap 4. It is Free and Open Source.</textarea>
+                    <textarea rows="4"  class="form-control form-control-alternative" name="about" placeholder="A few words about you ...">A beautiful Dashboard for Bootstrap 4. It is Free and Open Source.</textarea>
                   </div>
+                </div>
+                <div class="col-xs-8">
+                  <input type="submit" name="submit" class="btn btn-primary" value="submit">
+                  <?php if(isset($error_msg)){
+                               echo "<span style='color:red;' class='pull-right'>$error_msg</span>";
+                             }else if(isset($msg)) {
+                                echo "<span style='color:green;' class='pull-right'>$msg</span>";
+                             }
+                  ?>
                 </div>
               </form>
             </div>

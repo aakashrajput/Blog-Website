@@ -24,7 +24,6 @@
                 <th scope="col">Username</th>
                 <th scope="col">Email</th>
                 <th scope="col">Role</th>
-                <th scope="col">Posts</th>
                 <th scope="col">Edit</th>
                 <th scope="col">Delete</th>
               </tr>
@@ -39,7 +38,7 @@
                   $username = $row['username'];
                   $role = $row['role'];
                   $image = $row['image'];
-                  $date = getdate ($row['date']);
+                  $date = getdate ($row['reg_date']);
                   $day = $date['mday'];
                   $month = substr($date['month'],0,3);
                   $year = $date['year'];
@@ -62,16 +61,13 @@
                   </span>
                 </td>
                 <td>
-                  <?php echo $username; ?>
+                  <?php echo $email; ?>
                 </td>
                 <td>
                   <?php echo ucfirst($role); ?>
                 </td>
                 <td class="text-right">
-                  11
-                </td>
-                <td class="text-right">
-                <a href="edit-user.php?edit=<?php echo $id; ?>">
+                <a href="profile.php?edit=<?php echo $id; ?>">
                   <i class="ni ni-settings-gear-65" style="font-size:20px"></i>
                 </a>
                 </td>
