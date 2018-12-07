@@ -418,7 +418,7 @@ if(isset($_POST['checkboxes'])){
                 <span>Support</span>
               </a>
               <div class="dropdown-divider"></div>
-              <a href="tables.html#!" class="dropdown-item">
+              <a href="?logout='1'" class="dropdown-item">
                 <i class="ni ni-user-run"></i>
                 <span>Logout</span>
               </a>
