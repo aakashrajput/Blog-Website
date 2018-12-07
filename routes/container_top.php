@@ -22,13 +22,13 @@
             ?>
             <div class="col-sm-6 mas-p">
                 <div class="mas-item mas-big">
-                    <a href="posts.php"><figure><img src="assets/img/masonry/568x450-01.jpg" class="img-responsive" alt=""></figure></a>
+                    <a href="posts.php?post_id=<?php echo $container_id?>"><figure><img src="assets/img/masonry/568x450-01.jpg" class="img-responsive" alt=""></figure></a>
                     <div class="mas-text">
                         <div class="post-cat"><a href="index.html#"><?php echo $container_categories; ?></a></div>
                         <h2 class="mas-title"><a href="index.html#"><?php echo $container_title; ?></a></h2>
                         <div class="mas-details">
                             <p><?php echo substr($container_data,0,150); ?></p>
-                            <a href="posts.php" class="read-more">Read More &#8702;</a>
+                            <a href="posts.php?post_id=<?php echo $container_id?>" class="read-more">Read More &#8702;</a>
                         </div>
                     </div>
                 </div>
@@ -52,13 +52,13 @@
                             ?>
                             <div class="item mas-m-b">
                                 <div class="mas-item masonry-sm">
-                                    <a href="posts.php"><figure><img src="assets/img/masonry/282x223-01.jpg" class="img-responsive" alt=""></figure></a>
+                                    <a href="posts.php?post_id=<?php echo $container_id?>"><figure><img src="assets/img/masonry/282x223-01.jpg" class="img-responsive" alt=""></figure></a>
                                     <div class="mas-text">
                                         <div class="post-cat"><a href="index.html#"><?php echo $container_categories; ?></a></div>
                                         <h4 class="mas-title"><a href="index.html#"><?php echo $container_title; ?></a></h4>
                                         <div class="mas-details">
                                             <p><?php echo substr($container_data,0,50); ?></p>
-                                            <a href="posts.php" class="read-more">Read More &#8702;</a>
+                                            <a href="posts.php?post_id=<?php echo $container_id?>" class="read-more">Read More &#8702;</a>
                                         </div>
                                     </div>
                                 </div>
@@ -82,13 +82,13 @@
                             ?>
                             <div class="item">
                                 <div class="mas-item masonry-sm">
-                                    <a href="posts.php"><figure><img src="assets/img/masonry/282x223-04.jpg" class="img-responsive" alt=""></figure></a>
+                                    <a href="posts.php?post_id=<?php echo $container_id?>"><figure><img src="assets/img/masonry/282x223-04.jpg" class="img-responsive" alt=""></figure></a>
                                     <div class="mas-text">
                                         <div class="post-cat"><a href="index.html#"><?php echo $container_categories; ?></a></div>
                                         <h4 class="mas-title"><a href="index.html#"><?php echo $container_title; ?></a></h4>
                                         <div class="mas-details">
                                             <p><?php echo substr($container_data,0,50); ?></p>
-                                            <a href="posts.php" class="read-more">Read More &#8702;</a>
+                                            <a href="posts.php?post_id=<?php echo $container_id?>" class="read-more">Read More &#8702;</a>
                                         </div>
                                     </div>
                                 </div>
@@ -114,13 +114,13 @@
                             ?>
                             <div class="item">
                                 <div class="mas-item masonry-sm">
-                                    <a href="posts.php"><figure><img src="assets/img/masonry/282x223-05.jpg" class="img-responsive" alt=""></figure></a>
+                                    <a href="posts.php?post_id=<?php echo $container_id?>"><figure><img src="assets/img/masonry/282x223-05.jpg" class="img-responsive" alt=""></figure></a>
                                     <div class="mas-text">
                                         <div class="post-cat"><a href="index.html#"><?php echo $container_categories; ?></a></div>
                                         <h4 class="mas-title"><a href="index.html#"><?php echo $container_title; ?></a></h4>
                                         <div class="mas-details">
                                             <p><?php echo substr($container_data,0,50); ?></p>
-                                            <a href="posts.php" class="read-more">Read More &#8702;</a>
+                                            <a href="posts.php?post_id=<?php echo $container_id?>" class="read-more">Read More &#8702;</a>
                                         </div>
                                     </div>
                                 </div>
@@ -144,13 +144,13 @@
                             ?>
                             <div class="item">
                                 <div class="mas-item masonry-sm">
-                                    <a href="posts.php"><figure><img src="assets/img/masonry/282x223-07.jpg" class="img-responsive" alt=""></figure></a>
+                                    <a href="posts.php?post_id=<?php echo $container_id?>"><figure><img src="assets/img/masonry/282x223-07.jpg" class="img-responsive" alt=""></figure></a>
                                     <div class="mas-text">
                                         <div class="post-cat"><a href="index.html#"><?php echo $container_categories; ?></a></div>
                                         <h4 class="mas-title"><a href="index.html#"><?php echo $container_title; ?></a></h4>
                                         <div class="mas-details">
                                             <p><?php echo substr($container_data,0,50); ?></p>
-                                            <a href="posts.php" class="read-more">Read More &#8702;</a>
+                                            <a href="posts.php?post_id=<?php echo $container_id?>" class="read-more">Read More &#8702;</a>
                                         </div>
                                     </div>
                                 </div>
