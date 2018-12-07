@@ -121,7 +121,6 @@
               </div>
               <form class="register-form" method="post" action="user_reg.php">
                 <?php include('errors.php'); ?>
-                <input type="text" class="form-control" name="name"  placeholder="Your Name" value="<?php echo $name; ?>" type="text" required="">
                 <input type="text" class="form-control" name="username" value="<?php echo $username; ?>" placeholder="username" required="">
                 <input type="text" class="form-control" name="email" value="<?php echo $email; ?>" placeholder="email" required="">
                 <input type="password" class="form-control" name="password_1"  placeholder="Enter Your Password" type="password" required="">

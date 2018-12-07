@@ -385,7 +385,7 @@ if(isset($_POST['checkboxes'])){
             <a class="nav-link pr-0" href="tables.html#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <div class="media align-items-center">
                 <span class="avatar avatar-sm rounded-circle">
-                  <img alt="Image placeholder" src="./assets/img/theme/team-4-800x800.jpg">
+                  <img alt="Image placeholder" src=".././assets/img/profile_img1.jpeg">
                 </span>
                 <div class="media-body ml-2 d-none d-lg-block">
                   <span class="mb-0 text-sm  font-weight-bold"><?php echo $_SESSION['username']; ?></span>
@@ -401,19 +401,11 @@ if(isset($_POST['checkboxes'])){
                 <span>My profile</span>
               </a>
               <a href="profile.html" class="dropdown-item">
-                <i class="ni ni-settings-gear-65"></i>
-                <span>Settings</span>
-              </a>
-              <a href="profile.html" class="dropdown-item">
-                <i class="ni ni-calendar-grid-58"></i>
-                <span>Activity</span>
-              </a>
-              <a href="profile.html" class="dropdown-item">
                 <i class="ni ni-support-16"></i>
                 <span>Support</span>
               </a>
               <div class="dropdown-divider"></div>
-              <a href="tables.html#!" class="dropdown-item">
+              <a href="?logout='1'" class="dropdown-item">
                 <i class="ni ni-user-run"></i>
                 <span>Logout</span>
               </a>

@@ -197,7 +197,7 @@ if(isset($_POST['checkboxes'])){
   <link href="assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
   <!-- Argon CSS -->
   <link type="text/css" href="assets/css/argon.min.css%3Fv=1.0.0.css" rel="stylesheet">
-  <script src=".././ckeditor/ckeditor.js"></script>
+  <script src="../.././ckeditor/ckeditor.js"></script>
 </head>
 
 <body>

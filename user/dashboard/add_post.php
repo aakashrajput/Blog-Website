@@ -20,7 +20,7 @@ include ("top-head.php");
       <form action="" method="POST" name="form1" enctype="multipart/form-data">
         <?php
         if(isset($_POST['submit'])){
-          //$author = $_POST['author'];
+          $author = $_SESSION['username'];
           $title = $_POST['title'];
           $tags = $_POST['tags'];
           $category = $_POST['category'];
@@ -29,7 +29,7 @@ include ("top-head.php");
                   if(empty($category)){
                     $error_msg = "Category Field is blank";
                   } else {
-                    $query = "INSERT INTO `posts` (`id`, `date`, `title`, `author`, `author_image`, `categories`,`tags`, `post_data`, `views`, `status`) VALUES (NULL, '$date', '$title', 'testuser','test.png', '$category', '$tags', '$post_data', '0', 'unpublish')";
+                    $query = "INSERT INTO `posts` (`id`, `date`, `title`, `author`, `author_image`, `categories`,`tags`, `post_data`, `views`, `status`) VALUES (NULL, '$date', '$title', '$author','test.png', '$category', '$tags', '$post_data', '0', 'unpublish')";
                     if(mysqli_query($link,$query)){
                       $msg = "post Added";
                       //$category = "";
