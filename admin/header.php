@@ -2,6 +2,18 @@
 <?php
 
 
+session_start();
+
+  if (!isset($_SESSION['username'])) {
+    $_SESSION['msg'] = "You must log in first";
+    header('location: .././index.php');
+  }
+  if (isset($_GET['logout'])) {
+    session_destroy();
+    unset($_SESSION['username']);
+    header("location: .././index.php");
+  }
+
 if(isset($_GET['del'])){
   $del_id = $_GET['del'];
   $del_check_query = "SELECT * FROM users WHERE id = $del_id";
@@ -382,7 +394,7 @@ if(isset($_POST['checkboxes'])){
                   <img alt="Image placeholder" src="./assets/img/theme/team-4-800x800.jpg">
                 </span>
                 <div class="media-body ml-2 d-none d-lg-block">
-                  <span class="mb-0 text-sm  font-weight-bold">User</span>
+                  <span class="mb-0 text-sm  font-weight-bold"><?php echo $_SESSION['username']; ?></span>
                 </div>
               </div>
             </a>
