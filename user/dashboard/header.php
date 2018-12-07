@@ -316,16 +316,6 @@ if(isset($_POST['checkboxes'])){
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="user.php">
-              <i class="ni ni-single-02 text-red"></i> Users List
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="comments.php">
-              <i class="ni ni-world text-green"></i> Comments List
-            </a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link active" href="postslist.php">
               <i class="ni ni-single-copy-04 text-orange"></i> Posts List
             </a>
@@ -357,11 +347,6 @@ if(isset($_POST['checkboxes'])){
               <i class="ni ni-spaceship"></i> Add News
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="add_category.php">
-              <i class="ni ni-world-2"></i> Add Category
-            </a>
-          </li>
         </ul>
       </div>
     </div>
@@ -390,7 +375,7 @@ if(isset($_POST['checkboxes'])){
             <a class="nav-link pr-0" href="tables.html#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <div class="media align-items-center">
                 <span class="avatar avatar-sm rounded-circle">
-                  <img alt="Image placeholder" src="./assets/img/theme/team-4-800x800.jpg">
+                  <img alt="Image placeholder" src="../.././assets/img/profile_img1.jpeg">
                 </span>
                 <div class="media-body ml-2 d-none d-lg-block">
                   <span class="mb-0 text-sm  font-weight-bold"><?php echo $_SESSION['username']; ?></span>
@@ -401,19 +386,15 @@ if(isset($_POST['checkboxes'])){
               <div class=" dropdown-header noti-title">
                 <h6 class="text-overflow m-0">Welcome!</h6>
               </div>
-              <a href="profile.html" class="dropdown-item">
-                <i class="ni ni-single-02"></i>
-                <span>My profile</span>
-              </a>
-              <a href="profile.html" class="dropdown-item">
+              <a href="profile.php" class="dropdown-item">
                 <i class="ni ni-settings-gear-65"></i>
                 <span>Settings</span>
               </a>
-              <a href="profile.html" class="dropdown-item">
+              <a href="profile.php" class="dropdown-item">
                 <i class="ni ni-calendar-grid-58"></i>
                 <span>Activity</span>
               </a>
-              <a href="profile.html" class="dropdown-item">
+              <a href="support.php" class="dropdown-item">
                 <i class="ni ni-support-16"></i>
                 <span>Support</span>
               </a>

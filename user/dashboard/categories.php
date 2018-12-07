@@ -22,10 +22,8 @@ include ("header.php");
 
             <thead class="thead-light">
               <tr>
-                <th scope="col"><input type="checkbox" id="selectallboxes"></th>
                 <th scope="col">Id</th>
                 <th scope="col">Category</th>
-                <th scope="col">Delete</th>
               </tr>
             </thead>
             <tbody>
@@ -35,21 +33,11 @@ include ("header.php");
                   $categories = $row['category'];
                ?>
               <tr>
-                <th scope="row">
-                  <div class="media align-items-center">
-                    <input type="checkbox" class="checkboxes" name="checkboxes[]" value="<?php echo $id; ?>">
-                  </div>
-                </th>
                 <td>
                 <?php echo $id; ?>
                 </td>
                 <td>
                   <?php echo $categories; ?>
-                </td>
-                <td>
-                <a href="categories.php?del_cat=<?php echo $id; ?>">
-                  <i class="ni ni-fat-delete" style="font-size:30px"></i>
-                </a>
                 </td>
               </tr>
             <?php } ?>
@@ -57,13 +45,6 @@ include ("header.php");
           </table>
         </div>
         <div class="card-footer py-4">
-          <div class="form-group">
-              <select class="" name="bulk-option" class="form-control">
-                <option value="Delete">Delete</option>
-                <option value="Approve">Approve</option>
-                <option value="Pending">Unapprove</option>
-              </select>
-          </div>
           <div class="col-xs-8">
             <input type="submit" name="" value="Apply" class="btn btn-success">
             <?php

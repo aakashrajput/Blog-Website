@@ -9,10 +9,10 @@ include ("header.php");
     <div class="col">
       <div class="card shadow">
         <div class="card-header border-0">
-          <h3 class="mb-0">Comments List</h3>
+          <h3 class="mb-0">Posts List</h3>
         </div>
         <?php
-        $query = "SELECT * FROM posts ORDER BY id DESC";
+        $query = "SELECT * FROM posts where status = 'publish' ORDER BY id DESC";
         $run = mysqli_query($link,$query);
         if(mysqli_num_rows($run) > 0){
          ?>
@@ -22,15 +22,12 @@ include ("header.php");
 
             <thead class="thead-light">
               <tr>
-                <th scope="col"><input type="checkbox" id="selectallboxes"></th>
+                <th scope="col">Id</th>
                 <th scope="col">Date</th>
                 <th scope="col">Author</th>
                 <th scope="col">Post Title</th>
                 <th scope="col">Category</th>
                 <th scope="col">Status</th>
-                <th scope="col">Approve</th>
-                <th scope="col">Unapprove</th>
-                <th scope="col">Delete</th>
               </tr>
             </thead>
             <tbody>
@@ -49,7 +46,7 @@ include ("header.php");
               <tr>
                 <th scope="row">
                   <div class="media align-items-center">
-                    <input type="checkbox" class="checkboxes" name="checkboxes[]" value="<?php echo $id; ?>">
+                    <?php echo $id; ?>
                   </div>
                 </th>
                 <td>
@@ -72,33 +69,13 @@ include ("header.php");
                 <td>
                   <?php echo $status; ?>
                 </td>
-                <td class="text-right">
-                <a href="postslist.php?approve_post=<?php echo $id; ?>">
-                  <i class="ni ni-check-bold" style="font-size:20px"></i>
-                </a>
-                </td>
-                <td class="text-right">
-                <a href="postslist.php?unapprove_post=<?php echo $id; ?>">
-                  <i class="ni ni-fat-remove" style="font-size:30px"></i>
-                </a>
-                <td class="text-right">
-                <a href="postslist.php?del_post=<?php echo $id; ?>">
-                  <i class="ni ni-fat-delete" style="font-size:30px"></i>
-                </a>
-                </td>
               </tr>
             <?php } ?>
             </tbody>
           </table>
         </div>
         <div class="card-footer py-4">
-          <div class="form-group">
-              <select class="" name="bulk-option" class="form-control">
-                <option value="Delete">Delete</option>
-                <option value="Approve">Approve</option>
-                <option value="Pending">Unapprove</option>
-              </select>
-          </div>
+
           <div class="col-xs-8">
             <input type="submit" name="" value="Apply" class="btn btn-success">
             <?php
