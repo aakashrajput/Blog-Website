@@ -8,11 +8,13 @@ session_start();
     $_SESSION['msg'] = "You must log in first";
     header('location: .././index.php');
   }
+
   if (isset($_GET['logout'])) {
     session_destroy();
     unset($_SESSION['username']);
     header("location: .././index.php");
   }
+
 
 if(isset($_GET['del'])){
   $del_id = $_GET['del'];
@@ -233,7 +235,7 @@ if(isset($_POST['checkboxes'])){
           <a class="nav-link" href="index.html#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <div class="media align-items-center">
               <span class="avatar avatar-sm rounded-circle">
-                <img alt="Image placeholder" src="assets/img/theme/team-1-800x800.jpg">
+                <img alt="Image placeholder" src=".././assets/img/profile_img1.jpeg">
               </span>
             </div>
           </a>
@@ -250,7 +252,7 @@ if(isset($_POST['checkboxes'])){
               <span>Support</span>
             </a>
             <div class="dropdown-divider"></div>
-            <a href="index.html#!" class="dropdown-item">
+            <a href="?logout='1'" class="dropdown-item">
               <i class="ni ni-user-run"></i>
               <span>Logout</span>
             </a>
